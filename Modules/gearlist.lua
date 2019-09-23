@@ -139,29 +139,29 @@ function UpdateShownItems(self)
 			btn.iconFrame.id = LibGearExam.SlotIDs[shownSlots[index]];
 
 			-- Gem Scan -- Directly from unit or just from link
-			if (ex:ValidateUnit() and CheckInteractDistance(ex.unit,1)) then
-				LibGearExam:GetGemInfo(nil,gemTable,ex.unit,slotName);
-			else
-				LibGearExam:GetGemInfo(link,gemTable);
-			end
-			for i = 1, MAX_NUM_SOCKETS do
-				local obj = btn["Gem"..i];
-				if (gemTable[i]) then
-					local itemName, _, _, _, _, _, _, _, _, itemTexture = GetItemInfo(gemTable[i]);
-					if (itemName) then
-						obj.link = gemTable[i];
-						obj.missing = nil;
-						obj.icon:SetTexture(itemTexture);
-					else
-						obj.link = nil;
-						obj.missing = gemTable[i];
-						obj.icon:SetTexture("Interface\\ItemSocketingFrame\\UI-EmptySocket-"..gemTable[i]:match("([^%s]+)"));
-					end
-					obj:Show();
-				else
-					obj:Hide();
-				end
-			end
+			--  if (ex:ValidateUnit() and CheckInteractDistance(ex.unit,1)) then
+			--  	LibGearExam:GetGemInfo(nil,gemTable,ex.unit,slotName);
+			--  else
+			--  	LibGearExam:GetGemInfo(link,gemTable);
+			--  end
+			--  for i = 1, MAX_NUM_SOCKETS do
+			--  	local obj = btn["Gem"..i];
+			--  	if (gemTable[i]) then
+			--  		local itemName, _, _, _, _, _, _, _, _, itemTexture = GetItemInfo(gemTable[i]);
+			--  		if (itemName) then
+			--  			obj.link = gemTable[i];
+			--  			obj.missing = nil;
+			--  			obj.icon:SetTexture(itemTexture);
+			--  		else
+			--  			obj.link = nil;
+			--  			obj.missing = gemTable[i];
+			--  			obj.icon:SetTexture("Interface\\ItemSocketingFrame\\UI-EmptySocket-"..gemTable[i]:match("([^%s]+)"));
+			--  		end
+			--  		obj:Show();
+			--  	else
+			--  		obj:Hide();
+			--  	end
+			--  end
 			-- Enchant
 			local enchantID, enchantName = LibGearExam:GetEnchantInfo(link);
 			if (enchantID) then

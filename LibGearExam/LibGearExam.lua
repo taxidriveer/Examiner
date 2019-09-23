@@ -42,7 +42,7 @@ LGE.MagicSchools = { "FIRE", "NATURE", "ARCANE", "FROST", "SHADOW", "HOLY" };
 LGE.Slots = {
 	"HeadSlot", "NeckSlot", "ShoulderSlot", "BackSlot", "ChestSlot", "ShirtSlot", "TabardSlot", "WristSlot",
 	"HandsSlot", "WaistSlot", "LegsSlot", "FeetSlot", "Finger0Slot", "Finger1Slot", "Trinket0Slot", "Trinket1Slot",
-	"MainHandSlot", "SecondaryHandSlot",
+	"MainHandSlot", "SecondaryHandSlot", "RangedSlot",
 };
 LGE.SlotIDs = {};
 for _, slotName in ipairs(LGE.Slots) do
@@ -160,11 +160,11 @@ local EMPTY_SOCKET_NAMES = {
 
 LGE.StatRatingBaseTable = {
 	SPELLHASTE = 10,
-	SPELLHIT = 8,
-	SPELLCRIT = 14,
+	SPELLHIT = 1,
+	SPELLCRIT = 1,
 	HASTE = 10,
-	HIT = 9.37931,				-- Buffed a little in 4.0.1 (was 10 before)
-	CRIT = 14,
+	HIT = 1,				-- Buffed a little in 4.0.1 (was 10 before)
+	CRIT = 1,
 	EXPERTISE = 2.34483,		-- Buffed a little in 4.0.1 (was 2.5 before)
 	DODGE = 13.8,
 	PARRY = 13.8,
@@ -177,7 +177,7 @@ LGE.StatRatingBaseTable = {
 --	RESILIENCE = 28.75 * 0.75 / 2 / 1.125,
 	RESILIENCE = 7.96418,				-- Apparently, this is the value for 4.1?
 
-	DEFENSE = 1.5,
+	-- DEFENSE = 1.5,
 	ARMORPENETRATION = 4.69512176513672 / 1.25 / .88,
 };
 

@@ -1,3 +1,16 @@
+Fan Update
+---------------------------------------
+* Disabled Talents, Guild and Feats
+* French localization fixes
+* Re-added ranged weapon
+* Item level fix
+* Sort average item level fix
+* Basic item scan for hit/crit % (English and French clients)
+
+To do :
+* Detect armor value in French clients
+* Re-enable gearlist module
+
 Examiner - An Advanced Inspection Addon
 ---------------------------------------
 With Examiner, you can check other players gear, talents, achievements, honor and arena team details.

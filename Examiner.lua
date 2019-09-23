@@ -55,7 +55,7 @@ ex.options = {
 	{ var = "makeMovable", default = false, label = "Make Examiner Movable", tip = "To freely move Examiner around, enable this option, otherwise it will behave like a normal frame, such as the Quest Log or Spellbook" },
 	{ var = "autoInspect", default = true, label = "Auto Inspect on Target Change", tip = "With this option turned on, Examiner will automatically inspect your new target when you change it." },
 	{ var = "clearInspectOnHide", default = false, label = "Clear Inspect Data on Hide", tip = "When Examiner gets hidden, this option will clear inspection data, thus freeing up some memory." },
-	{ var = "percentRatings", default = false, label = "Show Ratings in Percentage *", tip = "* = Not working in WoD.\nWith this option enabled, ratings will be displayed in percent relative to the inspected person's level." },
+	-- { var = "percentRatings", default = false, label = "Show Ratings in Percentage *", tip = "* = Not working in WoD.\nWith this option enabled, ratings will be displayed in percent relative to the inspected person's level." },
 	{ var = "combineAdditiveStats", default = true, label = "Combine Additive Stats", tip = "This option will combine certain stats which stacks with others.\n- Spell Power to specific schools\n- Intellect to Spell Power\n- AP to Ranged AP" },
 	{ var = "tooltipSmartAnchor", default = false, label = "Smart Tooltip Anchor", tip = "Instead of showing item tooltips next to the item button, it will place it next to the Examiner window, in a fixed position" },
 };
@@ -105,7 +105,7 @@ end
 
 -- OnUpdate -- Only used for units outside inspect range
 local function Examiner_OnUpdate(self,elapsed)
-	if (self:ValidateUnit()) and (CheckInteractDistance(self.unit,1)) then
+	if (self:ValidateUnit()) and (CheckInteractDistance(self.unit,3)) then
 		self:DoInspect(self.unit);
 	end
 end
@@ -199,7 +199,7 @@ ex.UNIT_PORTRAIT_UPDATE = ex.UNIT_MODEL_CHANGED;
 
 -- Rescan Gear on Item Change
 function ex:UNIT_INVENTORY_CHANGED(event,unit)
-	if (self:ValidateUnit() and UnitIsUnit(unit,self.unit) and CheckInteractDistance(self.unit,1)) then
+	if (self:ValidateUnit() and UnitIsUnit(unit,self.unit) and CheckInteractDistance(self.unit,3)) then
 		self:ScanGear(unit);
 		self:SendModuleEvent("OnInspectReady",unit,self.guid);
 	end
@@ -525,7 +525,8 @@ end
 -- CanInspect function override as the normal function seems bugged.
 function ex:CanInspect(unit)
 	-- If CanInspect() says yes, then go ahead. Otherwise only inspect if not npc, is visible, and in range, not only that, but the unit has to be friendly, or a non flagged foe.
-	return CanInspect(unit) or (ex.unitType ~= 1 and UnitIsVisible(unit) and CheckInteractDistance(unit,1) and (ex.unitType == 3 or not UnitIsPVP(unit) or UnitIsPVPSanctuary(unit)));
+	return CanInspect(unit) or (ex.unitType ~= 1 and UnitIsVisible(unit) and CheckInteractDistance(unit,3) and (ex.unitType == 3 or not UnitIsPVP(unit) or UnitIsPVPSanctuary(unit)));
+	
 end
 
 -- Show or hide Examiner, but ensures that its done using the movable option
@@ -615,7 +616,7 @@ function ex:InspectReady(guid)
 		if (info.guild) then
 			--info.guildID, info.guildLevel, info.guildXP, info.guildMembers = GetInspectGuildInfo(unit);	-- Az: move this into guild.lua? -- Old Pre-MoP
 			--info.guildLevel, info.guildXP, info.guildMembers = GetInspectGuildInfo(unit);	-- MoP: No more guildID as first return -- Az: move this into guild.lua?
-			info.guildPoints, info.guildMembers = GetInspectGuildInfo(unit);		-- WoD: Guild leveling removed. Az: What are guildPoints?
+			--info.guildPoints, info.guildMembers = GetInspectGuildInfo(unit);		-- WoD: Guild leveling removed. Az: What are guildPoints?
 		end
 		-- Scan Gear & Post InspectReady
 		self:ScanGear(unit);
@@ -724,7 +725,7 @@ function ex:DoInspect(unit,openFlag)
 			self.modules[cfg.activePage].page:Hide();	-- Az: this is slightly bad to do, what if a module still have data to show? feats still work outside inspect range for example
 		end
 		-- Outside range, monitor range and inspect as soon as they are in range
-		if (not CheckInteractDistance(unit,1)) then
+		if (not CheckInteractDistance(unit,3)) then
 			self:SetScript("OnUpdate",Examiner_OnUpdate);
 		end
 	end
@@ -1021,7 +1022,7 @@ function ex.ItemButton_OnEnter(self,motion)
 		wipe(statTipStats2);
 		gtt:Show();
 	-- set item from unit
-	elseif (self.id and ex:ValidateUnit() and CheckInteractDistance(ex.unit,1) and gtt:SetInventoryItem(ex.unit,self.id)) then
+	elseif (self.id and ex:ValidateUnit() and CheckInteractDistance(ex.unit,3) and gtt:SetInventoryItem(ex.unit,self.id)) then
 	-- set item from link
 	elseif (self.link) then
 		gtt:SetHyperlink(self.link);

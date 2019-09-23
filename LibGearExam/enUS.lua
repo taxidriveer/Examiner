@@ -40,6 +40,8 @@ LibGearExam.Patterns = {
 	{ p = "Increases your resilience by (%d+)%.", s = "RESILIENCE", alert = 2 },
 	{ p = "Increases your PvP Resilience by (%d+)%.", s = "RESILIENCE" },	-- added 14.03.08
 
+	{ p = "Increased Defense %+(%d+)%.", s = "DEFENSE" },
+
 	{ p = "Increases defense rating by (%d+)%.", s = "DEFENSE", alert = 1 },
 	{ p = "Increases your dodge rating by (%d+)%.", s = "DODGE", alert = 1 },
 	{ p = "Increases your dodge by (%d+)%.", s = "DODGE" },
@@ -61,12 +63,27 @@ LibGearExam.Patterns = {
 	--  Equip: Spell Power  --
 	{ p = "Increases your spell penetration by (%d+)%.", s = "SPELLPENETRATION", alert = 1 },	-- Still exists on "Don Rodrigo's Band" (21563) -- Fixed in MoP or earlier
 
+	{ p = "Increases damage and healing done by magical spells and effects by up to (%d+)%.", s = "SPELLDMG" },
+		
+	
 	{ p = "Increases spell power by (%d+)%.", s = "SPELLDMG" },
 	{ p = "Increases spell power slightly%.", s = "SPELLDMG", v = 6, alert = 1 }, -- Bronze Band of Force
 
 	{ p = "%+(%d+) Shadow and Frost Spell Power", s = { "FROSTDMG", "SHADOWDMG" } },	-- Soulfrost enchant
 	{ p = "%+(%d+) Arcane and Fire Spell Power", s = { "ARCANEDMG", "FIREDMG" } },		-- Sunfire enchant
 
+	{ p = "Increases damage done by arcane spells and effects by up to (%d+)%.", s = "ARCANEDMG" },
+	{ p = "Increases damage done by fire spells and effects by up to (%d+)%.", s = "FIREDMG" },
+	{ p = "Increases damage done by nature spells and effects by up to (%d+)%.", s = "NATUREDMG" },
+	{ p = "Increases damage done by Frost spells and effects by up to (%d+)%.", s = "FROSTDMG" },
+	{ p = "Increases damage done by shadow spells and effects by up to (%d+)%.", s = "SHADOWDMG" },
+	{ p = "Increases damage done by holy spells and effects by up to (%d+)%.", s = "HOLYDMG" },
+	
+	
+	
+	
+	
+	
 	{ p = "Increases arcane spell power by (%d+)%.", s = "ARCANEDMG", alert = 1 },
 	{ p = "Increases fire spell power by (%d+)%.", s = "FIREDMG", alert = 1 },
 	{ p = "Increases nature spell power by (%d+)%.", s = "NATUREDMG", alert = 1 },
@@ -75,10 +92,17 @@ LibGearExam.Patterns = {
 	{ p = "Increases holy spell power by (%d+)%.", s = "HOLYDMG", alert = 1 },
 
 	--  Equip: Stats Which Improves Both Spells & Melee  --
+	{ p = "Improves your chance to get a critical strike by (%d+)%%%.", s = { "CRIT" }},
+	{ p = "Improves your chance to get a critical strike with spells by (%d+)%%%.", s = { "SPELLCRIT" }},
+	
 	{ p = "Improves critical strike rating by (%d+)%.", s = { "CRIT", "SPELLCRIT" }, alert = 1 },
 	{ p = "Increases your critical strike rating by (%d+)%.", s = { "CRIT", "SPELLCRIT" }, alert = 1 },
 	{ p = "Increases your critical strike by (%d+)%.", s = { "CRIT", "SPELLCRIT" } },
 
+	{ p = "Improves your chance to hit by (%d+)%%%.", s = { "HIT" }},
+	{ p = "Improves your chance to hit with spells by (%d+)%%%.", s = { "SPELLHIT" }},
+	
+	
 	{ p = "Improves hit rating by (%d+)%.", s = { "HIT", "SPELLHIT" }, alert = 1 },
 	{ p = "Increases your hit rating by (%d+)%.", s = { "HIT", "SPELLHIT" }, alert = 1 },
 	{ p = "Increases your hit by (%d+)%.", s = { "HIT", "SPELLHIT" } },
@@ -88,7 +112,12 @@ LibGearExam.Patterns = {
 	{ p = "Increases your haste by (%d+)%.", s = { "HASTE", "SPELLHASTE" } },
 
 	--  Health & Mana Per 5 Sec  --
-	{ p = "(%d+) health every 5 sec%.", s = "HP5", alert = 1 },
+	{ p = "Restores (%d+) mana per 5 sec%.", s = "MP5"},
+	{ p = "Restores (%d+) health per 5 sec%.", s = "HP5"},
+	
+	
+	
+	{ p = "(%d+) health every 5 sec%.", s = "HP5" },
 	{ p = "(%d+) [Hh]ealth per 5 sec%.", s = "HP5" }, -- Seen on the revamped Demon's Blood in Cataclysm, as well as Onyxia Blood Talisman -- Omited "Restores..." to catch several patterns
 
 	{ p = "%+(%d+) Mana Regen", s = "MP5", alert = 1 }, -- Scryer Shoulder Enchant, Priest ZG Enchant

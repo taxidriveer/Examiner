@@ -121,7 +121,7 @@ local function UpdateShownItems(self)
 				btn.name:SetTextColor(1,0.5,0.5);
 			end
 
-			btn.icon:SetTexture("Interface\\Icons\\Ability_Druid_ImprovedTreeForm");
+			btn.icon:SetTexture("Interface\\Icons\\Trade_Engineering");
 			btn:Show();
 		else
 			btn:Hide();

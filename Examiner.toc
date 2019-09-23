@@ -1,5 +1,5 @@
-## Interface: 80000
-## Version: 18.08.12
+## Interface: 11302
+## Version: Classic Fan Update
 ## Title: Examiner
 ## Author: Aezay (Earthen Ring EU)
 ## Notes: Advanced Inspection Mod of Gear, Talents, Honor, Arena and Achievements.
@@ -23,9 +23,5 @@ Modules\config.lua
 Modules\cache.lua
 Modules\stats.lua
 Modules\pvp.lua
-Modules\feats.lua
-Modules\talents_legion.lua
-Modules\gearlist.lua
-Modules\itemusage.lua
-Modules\guild.lua
+## Modules\gearlist.lua
 Modules\delayedscan.lua
