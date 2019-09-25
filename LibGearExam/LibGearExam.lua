@@ -312,6 +312,9 @@ function LGE:DoLineNeedScan(tipLine,scanSetBonuses)
 	-- Should Match: Normal +Stat, Base Item Armor, Block Value on Shields
 	elseif (text:find("^[+-]?%d+ [^%d]")) then
 		return true, text;
+	-- Lazy hack for French clients to detect armor value (e.g Armure : 50)
+	elseif (text:find("^(%a+) (%p)")) then
+		return true, text;
 	-- Set Names (Needed to Check Sets)
 	elseif (scanSetBonuses and text:find(self.SetNamePattern)) then
 		return true, text;
