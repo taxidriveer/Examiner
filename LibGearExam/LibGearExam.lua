@@ -26,7 +26,8 @@ LGE.revision = REVISION;
 LGE.ITEMLINK_PATTERN			= "(item:[^|]+)";					-- Matches the raw itemLink from the full itemString
 -- Pattern generation for itemLinks. Always match from the start of the itemLink, to ensure that any new properties added to itemLinks, wont break our patterns.
 LGE.ITEMLINK_PATTERN_ID			= "item:"..("[^:]*:"):rep(0).."(%d*)";
-LGE.ITEMLINK_PATTERN_ENCHANT	= "item:"..("[^:]*:"):rep(1).."(%d*)";
+-- LGE.ITEMLINK_PATTERN_ENCHANT	= "item:"..("[^:]*:"):rep(1).."(%d*)";
+LGE.ITEMLINK_PATTERN_ENCHANT    = "item:%d+:(%d+)";
 LGE.ITEMLINK_PATTERN_LEVEL		= "(item:"..("[^:]*:"):rep(8)..")(%d*)(.+)";		-- used in gsub, so the pattern must match the entire link, even future added properties
 
 -- Other Patterns
@@ -470,8 +471,10 @@ function LGE:GetEnchantInfo(link)
 	end
 	-- Set Link
 	self.Tip:ClearLines();
-	self.Tip:SetHyperlink(format("item:40892:%d",id));	-- Az: somewhat hackish, but it works!
-	local enchantName = LibGearExamTipTextLeft2:GetText();
+	-- self.Tip:SetHyperlink(format("item:%d+:%d+",id));	-- Az: somewhat hackish, but it works!
+	self.Tip:SetHyperlink(link);
+	-- local enchantName = LibGearExamTipTextLeft2:GetText();
+	local enchantName = "Enchanted"; -- Temp
 	if (self.Tip:NumLines() == 2) or (not enchantName) or (enchantName == "") then
 		return;
 	end
@@ -481,40 +484,7 @@ end
 
 -- Get Gem Info -- Number of returns will match number of sockets in item. Value will be gemLink if gemmed, and "EMPTY_SOCKET_<color>" global when gem is missing
 function LGE:GetGemInfo(link,gemTable,unit,slotName)
-	if (gemTable) then
-		wipe(gemTable);
-	else
-		gemTable = {};
-	end
-	-- Get "link" if we are scanning from "unit"
-	if (not link) then
-		link = GetInventoryItemLink(unit,self.SlotIDs[slotName]);
-	end
-	-- API Scan (Finds gemmed sockets)
-	for i = 1, MAX_NUM_SOCKETS do
-		local _, gemLink = GetItemGem(link,i);
-		gemTable[i] = gemLink and gemLink:match(self.ITEMLINK_PATTERN) or nil;
-	end
-	-- Tooltip Scan (Finds empty sockets)
-	self.Tip:ClearLines();
-	if (unit) then
-		self.Tip:SetInventoryItem(unit,self.SlotIDs[slotName]);
-	else
-		self.Tip:SetHyperlink(link);
-	end
-	for i = 2, self.Tip:NumLines() do
-		local line = _G["LibGearExamTipTextLeft"..i];
-		local text = line and line:GetText();
-		if (EMPTY_SOCKET_NAMES[text]) then
-			local index = 1;
-			while (gemTable[index]) do
-				index = (index + 1);
-			end
-			gemTable[index] = text;
-		end
-	end
-	-- Return
-	return gemTable;
+	
 end
 
 -- Fix Item String Level -- The level number of an item string, is always the inspector's level, not the inspected, this function fixes that
