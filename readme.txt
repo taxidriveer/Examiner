@@ -1,15 +1,14 @@
 Fan Update
 ---------------------------------------
 * Disabled Talents, Guild and Feats
-* French localization fixes
+* French localization fixes (including armor value detection)
 * Re-added ranged weapon
 * Item level fix
 * Sort average item level fix
 * Basic item scan for hit/crit % (English and French clients)
 
 To do :
-* Detect armor value in French clients
-* Re-enable gearlist module
+* Re-enable gearlist module (currently only report if item is enchanted, not the name of the enchant)
 
 Examiner - An Advanced Inspection Addon
 ---------------------------------------
