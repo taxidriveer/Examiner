@@ -50,7 +50,7 @@ LibGearExam.Patterns = {
 	{ p = "Increases your s?h?i?e?l?d? ?block rating by (%d+)%.", s = "BLOCK", alert = 1 }, -- Should catch both new and old style
 
 	{ p = "Increases the block value of your shield by (%d+)%.", s = "BLOCKVALUE", alert = 1 },
-	{ p = "^(%d+) Block$", s = "BLOCKVALUE" }, -- Should catch only base block value from a shield
+	-- { p = "^(%d+) Block$", s = "BLOCKVALUE" }, -- Should catch only base block value from a shield
 
 	--  Equip: Melee & Ranged  --
 	{ p = "Increases attack power by (%d+)%.", s = "AP" },
@@ -160,7 +160,7 @@ LibGearExam.Patterns = {
 	{ p = "%+(%d+) Block", s = "BLOCK" }, -- Combined Pattern: Covers [Shield Enchant] [Socket Bonus]
 	{ p = "%+(%d+) Shield Block Rating", s = "BLOCK", alert = 1 }, -- Combined Pattern: Covers [Shield Enchant] [Socket Bonus]
 
-	{ p = "%+(%d+) Block Value", s = "BLOCKVALUE", alert = 1 },
+	-- { p = "%+(%d+) Block Value", s = "BLOCKVALUE", alert = 1 },
 
 	{ p = "%+(%d+) Attack Power", s = "AP" },	-- Found on enchants
 	{ p = "%+(%d+) Ranged Attack Power", s = "RAP" },	-- Still exists on the hunter ZG enchant (2586)
