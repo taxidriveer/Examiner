@@ -12,7 +12,7 @@ LibGearExam.Patterns = {
 	-- { p = "Endurance %+(%d+)", s = "STA" }, -- WORKAROUND: Infused Amethyst (31116)
 	{ p = "%+(%d+) Intelligence", s = "INT" },
 	{ p = "%+(%d+) Esprit", s = "SPI" },
-	{ p = "Armure \58 (%d+)", s = "ARMOR" },
+	{ p = "Armure \58? (%d+)", s = "ARMOR" },
 
 	--  Resistances (Exclude the Resist-"ance" then it picks up armor patches as well)  --
 	{ p = "%+(%d+) \195\160 la r\195\169sistance Arcane", s = "ARCANERESIST" },
@@ -100,6 +100,23 @@ LibGearExam.Patterns = {
 
 	--  Enchants / Gems / Socket Bonuses / Mixed / Misc  --
 	{ p = "^%+(%d+) PV$", s = "HP" },
+	
+	-- Classic	
+	{ p = "^Agilit\195\169 %+(%d+)", s = "AGI" },
+	{ p = "^Endurance %+(%d+)", s = "STA" },
+	{ p = "^Force %+(%d+)", s = "STR" },
+	{ p = "^Intelligence %+(%d+)", s = "INT" },
+	{ p = "^Intelligence %+(%d+)", s = "INT" },
+	{ p = "^Esprit %+(%d+)", s = "SPI" },
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	{ p = "^%+(%d+) points de vie$", s = "HP" },
 	{ p = "^%+(%d+) points de mana$", s = "MP" },
 
@@ -110,15 +127,6 @@ LibGearExam.Patterns = {
 	{ p = "^Feu solaire$", s = { "ARCANEDMG", "FIREDMG" }, v = 50 },
 
 	{ p = "%+(%d+) \195\160 toutes les caract\195\169ristiques", s = { "STR", "AGI", "STA", "INT", "SPI" } },
-	
-	
-	
-	
-	{ p = "^Points de vie %+(%d+)$", s = "HP", v = 100 },
-	{ p = "^Intelligence %+(%d+)$", s = { "INT" } },
-	
-	
-	
 
 	{ p = "%+(%d+) au score de r\195\169silience", s = "RESILIENCE" },
 	{ p = "%+(%d+) au score d'esquive", s = "DODGE" },
