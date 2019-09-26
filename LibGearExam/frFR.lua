@@ -79,7 +79,8 @@ LibGearExam.Patterns = {
 	{ p = "^Intelligence %+(%d+)$", s = "INT" },
 	{ p = "^Esprit %+(%d+)$", s = "SPI" },
 	
-	{ p = "^Points de vie %+(%d+)$", s = "HP", v = 10 },
+	{ p = "^Points de vie %+(%d+)$", s = "HP" },
+	{ p = "^Mana %+(%d+)$", s = "MP" },
 	{ p = "^Armure renforcée %+(%d+)$", s = "ARMOR" },
 	
 	{ p = "^Lunette %(%+(%d+) .* de dégâts%)$", s = "RANGEDDMG" },

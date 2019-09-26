@@ -77,6 +77,9 @@ LibGearExam.Patterns = {
 	
 	{ p = "^Health %+(%d+)$", s = "HP" },
 	{ p = "^HP %+(%d+)$", s = "HP" },
+	
+	{ p = "^Mana %+(%d+)$", s = "MP" },
+	
 	{ p = "^Reinforced Armor %+(%d+)$", s = "ARMOR" },
 	
 	{ p = "^Scope %(%+(%d+) Damage%)$", s = "RANGEDDMG" },
