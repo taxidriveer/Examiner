@@ -1,14 +1,14 @@
 Fan Update
 ---------------------------------------
 * Disabled Talents, Guild and Feats
-* French localization fixes (including armor value detection)
 * Re-added ranged weapon
 * Item level fix
 * Sort average item level fix
 * Basic item scan for hit/crit % (English and French clients)
+* LibGearExam pattern update for en-us and fr-fr
 
 To do :
-* Re-enable gearlist module (currently only report if item is enchanted, not the name of the enchant)
+* Re-enable gearlist module (currently only report if item is enchanted, uncomment Modules\gearlist.lua in Examiner.toc)
 
 Examiner - An Advanced Inspection Addon
 ---------------------------------------
