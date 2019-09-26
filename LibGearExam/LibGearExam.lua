@@ -68,18 +68,18 @@ LGE.StatNames = {
 
 	MASTERY = STAT_MASTERY,
 
-	DODGE = STAT_DODGE,
+	DODGE = DODGE_CHANCE,
 	PARRY = STAT_PARRY,
-	DEFENSE = DEFENSE,	-- Az: obsolete!
+	DEFENSE = DEFENSE,
 	BLOCK = STAT_BLOCK,
-	BLOCKVALUE = ITEM_MOD_BLOCK_VALUE_SHORT,	-- Az: Obsolete!
+	BLOCKVALUE = ITEM_MOD_BLOCK_VALUE_SHORT,
 	RESILIENCE = STAT_RESILIENCE,
 	PVPPOWER = STAT_PVP_POWER,
 
 	AP = STAT_ATTACK_POWER,
 	RAP = ITEM_MOD_RANGED_ATTACK_POWER_SHORT,
-	CRIT = MELEE.." "..CRIT_ABBR,
-	HIT = MELEE.." "..HIT,
+	CRIT = STAT_CRITICAL_STRIKE,
+	HIT = STAT_HIT_CHANCE ,
 	HASTE = MELEE.." "..STAT_HASTE,
 
 	WPNDMG = DAMAGE_TOOLTIP,
@@ -161,15 +161,15 @@ local EMPTY_SOCKET_NAMES = {
 
 LGE.StatRatingBaseTable = {
 	SPELLHASTE = 10,
-	SPELLHIT = 1,
-	SPELLCRIT = 1,
+	-- SPELLHIT = 1,
+	-- SPELLCRIT = 1,
 	HASTE = 10,
-	HIT = 1,				-- Buffed a little in 4.0.1 (was 10 before)
-	CRIT = 1,
+	-- HIT = 1,				-- Buffed a little in 4.0.1 (was 10 before)
+	-- CRIT = 1,
 	EXPERTISE = 2.34483,		-- Buffed a little in 4.0.1 (was 2.5 before)
-	DODGE = 13.8,
+	-- DODGE = 13.8,
 	PARRY = 13.8,
-	BLOCK = 6.9,				-- Nerfed a little in 4.0.1 (was 5 before)
+	-- BLOCK = 6.9,				-- Nerfed a little in 4.0.1 (was 5 before)
 	MASTERY = 14,
 
 	-- Az: resilience is a mess, how do they get to the current value as of patch 4.0.3a? It seems to be 9.58333333333333333 which is 28.75 / 3. How are they getting to this though?
