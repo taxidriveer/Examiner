@@ -1,4 +1,8 @@
--- Modified by Maxfunkey (aka Carambha of EU-Loardaeron) for patch 3.0.2 November 2nd 2008
+-- For enchant and gem IDs, check out the following link: https://fr.classic.wowhead.com/enchanting
+-- Pattern entries marked with an "alert" value will cause Examiner to show a warning message,
+-- { p = "Pattern", s = "Category", alert = 1 },
+-- telling that the pattern is thought of as no longer in use. These patterns should eventually be deleted.
+-- Modified by Grome of EU-Sulfuron for patch 1.13.2 September 26th 2019
 
 if GetLocale() ~= "frFR" then
 	return;
@@ -11,6 +15,7 @@ LibGearExam.Patterns = {
 	{ p = "%+(%d+) Endurance", s = "STA" },
 	{ p = "%+(%d+) Intelligence", s = "INT" },
 	{ p = "%+(%d+) Esprit", s = "SPI" },
+	
 	{ p = "Armure \58 (%d+)", s = "ARMOR" },
 	-- OK
 		
@@ -63,8 +68,9 @@ LibGearExam.Patterns = {
 	{ p = "%+(%d+) à la régén. de mana", s = "MP5" },
 	{ p = "%+(%d+) Régén. de mana", s = "MP5" },
 
-	{ p = "(%d+) points de vie toutes les 5 sec%.", s = "HP5" }, -- need to investigate why rend doesn't work
-	{ p = "(%d+) points de mana toutes les 5 sec", s = "MP5" }, -- need to investigate why rend doesn't work
+	{ p = "(%d+) points de vie toutes les 5 sec%.", s = "HP5" }, -- need to investigate why "rend" doesn't work
+	{ p = "(%d+) points de mana toutes les 5 sec", s = "MP5" }, -- need to investigate why "rend" doesn't work
+	-- OK
 
 	--  Enchants / Socket Bonuses / Mixed / Misc  --
 	{ p = "^Agilité %+(%d+)$", s = "AGI" },
@@ -90,5 +96,5 @@ LibGearExam.Patterns = {
 	{ p = "%+(%d+) aux dégâts des sorts de Givre", s = "FROSTDMG" },
 	{ p = "%+(%d+) aux dégâts des sorts d'Ombre", s = "SHADOWDMG" },
 	{ p = "%+(%d+) aux dégâts des sorts du Sacré", s = "HOLYDMG" },
-
+	-- OK
 };
