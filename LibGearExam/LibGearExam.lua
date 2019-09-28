@@ -469,6 +469,12 @@ end
 -- Get Enchant Info -- Returns the EnchantID and the EnchantName
 function LGE:GetEnchantInfo(link)
 	local id = tonumber(link:match(LGE.ITEMLINK_PATTERN_ENCHANT));
+	-- Prepare basic item with enchant
+	if (id == nil  or id == "") then
+	id = ""
+	end
+	local link = "item:8383:"..id..":"
+	-- No enchant
 	if (not id) or (id == 0) then
 		return;
 	end
@@ -476,9 +482,8 @@ function LGE:GetEnchantInfo(link)
 	self.Tip:ClearLines();
 	-- self.Tip:SetHyperlink(format("item:%d+:%d+",id));	-- Az: somewhat hackish, but it works!
 	self.Tip:SetHyperlink(link);
-	-- local enchantName = LibGearExamTipTextLeft2:GetText();
-	local enchantName = "Enchanted"; -- Temp
-	if (self.Tip:NumLines() == 2) or (not enchantName) or (enchantName == "") then
+	local enchantName = LibGearExamTipTextLeft2:GetText();
+	if (not enchantName) or (enchantName == "") then
 		return;
 	end
 	-- return

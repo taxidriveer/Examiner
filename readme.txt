@@ -6,9 +6,10 @@ Fan Update
 * Sort average item level fix
 * Basic item scan for hit/crit % (English and French clients)
 * LibGearExam pattern update for en-us and fr-fr
+* Fixed enchant name in gearlist module
 
 To do :
-* Re-enable gearlist module (currently only report if item is enchanted, uncomment Modules\gearlist.lua in Examiner.toc)
+* Enable/Disable PVP and gearlist module in options if possible
 
 Examiner - An Advanced Inspection Addon
 ---------------------------------------
