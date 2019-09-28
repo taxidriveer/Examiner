@@ -35,6 +35,8 @@ LibGearExam.Patterns = {
 
 	{ p = "Augmente vos chances de bloquer les attaques avec un bouclier de (%d+)%%%.", s = "BLOCK" },
 	
+	{ p = "Augmente vos chances de parer une attaque de (%d+)%%%.", s = "PARRY" },
+	
 	{ p = "Augmente le score de blocage de votre bouclier de (%d+)%.", s = "BLOCKVALUE" },
 	
 	{ p = "Bloquer : (%d+)", s = "BLOCKVALUE" },

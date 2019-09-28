@@ -69,7 +69,7 @@ LGE.StatNames = {
 	MASTERY = STAT_MASTERY,
 
 	DODGE = DODGE_CHANCE,
-	PARRY = STAT_PARRY,
+	PARRY = PARRY_CHANCE,
 	DEFENSE = DEFENSE,
 	BLOCK = BLOCK_CHANCE,
 	BLOCKVALUE = ITEM_MOD_BLOCK_VALUE_SHORT,
@@ -168,7 +168,7 @@ LGE.StatRatingBaseTable = {
 	-- CRIT = 1,
 	EXPERTISE = 2.34483,		-- Buffed a little in 4.0.1 (was 2.5 before)
 	-- DODGE = 13.8,
-	PARRY = 13.8,
+	-- PARRY = 13.8,
 	-- BLOCK = 6.9,				-- Nerfed a little in 4.0.1 (was 5 before)
 	MASTERY = 14,
 

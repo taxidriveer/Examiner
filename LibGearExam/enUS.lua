@@ -31,6 +31,8 @@ LibGearExam.Patterns = {
 
 	{ p = "Increases your chance to block attacks with a shield by (%d+)%%%.", s = "BLOCK" },
 	
+	{ p = "Increases your chance to parry an attack by (%d+)%%%.", s = "PARRY" },
+	
 	{ p = "Increases the block value of your shield by (%d+)%.", s = "BLOCKVALUE" },
 	
 	{ p = "^(%d+) Block$", s = "BLOCKVALUE" },
