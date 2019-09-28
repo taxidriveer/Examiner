@@ -10,6 +10,7 @@ Fan Update
 
 To do :
 * Enable/Disable PVP and gearlist module in options if possible
+* Add % near Crit, Hit, Parry value....
 
 ![alt text](https://i.imgur.com/0XlP1T1.jpg)
 
