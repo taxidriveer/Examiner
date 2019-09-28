@@ -125,7 +125,7 @@ function UpdateShownItems(self)
 		local link = items[slotName];
 		if (link) then
 			local itemName, _, itemRarity, itemLevel, _, _, _, _, itemEquipLoc, itemTexture = GetItemInfo(link);
-			itemLevel = LibItemString:GetTrueItemLevel(link);
+			itemLevel = GetDetailedItemLevelInfo(link);
 
 			btn.link = link;
 --			btn.name:SetText(itemName);
