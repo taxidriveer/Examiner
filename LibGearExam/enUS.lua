@@ -62,10 +62,10 @@ LibGearExam.Patterns = {
 	
 	--  Health & Mana Per 5 Sec  --
 	{ p = "Restores (%d+) mana per 5 sec%.", s = "MP5" },
-	-- { p = "%+(%d+) Mana Regen", s = "MP5" },
+	{ p = "%+(%d+) Mana Regen", s = "MP5" },
 
 	{ p = "Restores (%d+) health per 5 sec%.", s = "HP5"},
-	-- { p = "(%d+) health every 5 sec%.", s = "HP5" },
+	{ p = "(%d+) health every 5 sec%.", s = "HP5" },
 	-- OK
 
 	--  Enchants / Socket Bonuses / Mixed / Misc  --

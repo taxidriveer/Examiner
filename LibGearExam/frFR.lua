@@ -81,7 +81,9 @@ LibGearExam.Patterns = {
 	
 	{ p = "^Points de vie %+(%d+)$", s = "HP" },
 	{ p = "^PV %+(%d+)$", s = "HP" },
+	
 	{ p = "^Mana %+(%d+)$", s = "MP" },
+	
 	{ p = "^Armure renforcée %+(%d+)$", s = "ARMOR" },
 	
 	{ p = "^Lunette %(%+(%d+) .* de dégâts%)$", s = "RANGEDDMG" },
