@@ -11,6 +11,9 @@ Fan Update
 To do :
 * Enable/Disable PVP and gearlist module in options if possible
 
+![alt text](https://i.imgur.com/0XlP1T1.jpg)
+
+
 Examiner - An Advanced Inspection Addon
 ---------------------------------------
 With Examiner, you can check other players gear, talents, achievements, honor and arena team details.
