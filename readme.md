@@ -11,7 +11,7 @@ Fan Update
 To do :
 * Enable/Disable PVP and gearlist module in options if possible
 
-![alt text](https://i.imgur.com/0XlP1T1.jpg)
+![alt text](https://i.imgur.com/iXCqCM3.png)
 
 Examiner - An Advanced Inspection Addon
 ---------------------------------------
