@@ -78,7 +78,7 @@ LGE.StatNames = {
 
 	AP = STAT_ATTACK_POWER,
 	RAP = ITEM_MOD_RANGED_ATTACK_POWER_SHORT,
-	CRIT = STAT_CRITICAL_STRIKE,
+	CRIT = CRIT_CHANCE ,
 	HIT = STAT_HIT_CHANCE ,
 	HASTE = MELEE.." "..STAT_HASTE,
 
@@ -161,15 +161,15 @@ local EMPTY_SOCKET_NAMES = {
 
 LGE.StatRatingBaseTable = {
 	SPELLHASTE = 10,
-	-- SPELLHIT = 1,
-	-- SPELLCRIT = 1,
+	SPELLHIT = 1, 
+	SPELLCRIT = 1,
 	HASTE = 10,
-	-- HIT = 1,				-- Buffed a little in 4.0.1 (was 10 before)
-	-- CRIT = 1,
+	HIT = 1,				-- Buffed a little in 4.0.1 (was 10 before)
+	CRIT = 1,
 	EXPERTISE = 2.34483,		-- Buffed a little in 4.0.1 (was 2.5 before)
-	-- DODGE = 13.8,
-	-- PARRY = 13.8,
-	-- BLOCK = 6.9,				-- Nerfed a little in 4.0.1 (was 5 before)
+	DODGE = 1,
+	PARRY = 1,
+	BLOCK = 1,				-- Nerfed a little in 4.0.1 (was 5 before)
 	MASTERY = 14,
 
 	-- Az: resilience is a mess, how do they get to the current value as of patch 4.0.3a? It seems to be 9.58333333333333333 which is 28.75 / 3. How are they getting to this though?
@@ -432,8 +432,10 @@ function LGE:GetStatValue(statToken,statTable,compareTable,level,combineAdditive
 	-- OPTION: Give Rating Values in Percent
 	local valuePct, rating;
 	if (self.StatRatingBaseTable[statToken]) then
-		rating = self:GetRatingInPercent(statToken,value,level) or 0;
-		valuePct = tonumber(format("%.2f",rating));
+		-- local color = "|cff80ff80";
+		rating = self:GetRatingInPercent(statToken,value,level) or 0; -- tip ?
+		valuePct = tonumber(format("%.2f",rating)); -- tip ?
+		value = value.."%"; -- do we color it ? color..value.."%"
 	end
 	-- Do not modify the value further if we are just getting the compare value (compareTable == true)
 	if (compareType == "boolean") then
@@ -508,6 +510,6 @@ function LGE:FormatStatName(statToken,inPercent)
 	elseif (inPercent or not self.StatRatingBaseTable[statToken]) then
 		return self.StatNames[statToken];
 	else
-		return self.StatNames[statToken].." "..RATING;
+		return self.StatNames[statToken] -- is there a language friendly version of .." "..RATING; ? use STATUS_TEXT_PERCENT ? this add rating or chance to the stats description
 	end
 end

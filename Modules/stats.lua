@@ -263,13 +263,15 @@ local function UpdateShownItems(self)
 				entry.right:SetText("");
 			end
 
-			if (displayList[index].tip) then
-				entry.tip.tip = displayList[index].tip;
-				entry.tip:SetWidth(max(entry.right:GetWidth(),20));
-				entry.tip:Show();
-			else
-				entry.tip:Hide();
-			end
+			-- this is where the tip is drawn
+
+			-- if (displayList[index].tip) then
+				-- entry.tip.tip = displayList[index].tip;
+				-- entry.tip:SetWidth(max(entry.right:GetWidth(),20));
+				-- entry.tip:Show();
+			-- else
+				-- entry.tip:Hide();
+			-- end
 
 			entry:Show();
 		else
