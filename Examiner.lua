@@ -949,13 +949,13 @@ function ex.ItemButton_OnClick(self,button)
 	if (self.link) then
 		local _, itemLink = GetItemInfo(self.link);
 		if (button == "RightButton") then
-			AzMsg("---|2 Gem Overview for "..itemLink.." |r---");
-			for i = 1, 3 do
-				local _, gemLink = GetItemGem(itemLink,i);
-				if (gemLink) then
-					AzMsg(format("Gem |1%d|r = %s",i,gemLink));
-				end
-			end
+			-- AzMsg("---|2 Enchantment Overview for "..itemLink.." |r---"); -- is there a way to link the enchant ?			
+			-- for i = 1, 3 do
+				-- local _, gemLink = GetItemGem(itemLink,i);
+				-- if (gemLink) then
+					-- AzMsg(format("Gem |1%d|r = %s",i,gemLink));
+				-- end
+			-- end
 		elseif (button == "LeftButton") then
 			local editBox = ChatEdit_GetActiveWindow();
 			if (IsModifiedClick("DRESSUP")) then
