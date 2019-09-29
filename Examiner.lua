@@ -947,15 +947,28 @@ end
 -- Item Button OnClick
 function ex.ItemButton_OnClick(self,button)
 	if (self.link) then
-		local _, itemLink = GetItemInfo(self.link);
 		if (button == "RightButton") then
-			-- AzMsg("---|2 Enchantment Overview for "..itemLink.." |r---"); -- is there a way to link the enchant ?			
-			-- for i = 1, 3 do
-				-- local _, gemLink = GetItemGem(itemLink,i);
-				-- if (gemLink) then
-					-- AzMsg(format("Gem |1%d|r = %s",i,gemLink));
-				-- end
-			-- end
+			-- Get Examiner item link and player item link
+			local _, ExaminerItemLink = GetItemInfo(self.link);
+			local PlayerItemslotId = self.id
+			local PlayerItemLink = GetInventoryItemLink("player", PlayerItemslotId)
+			local itemStats1, itemStats2 = {}, {};
+			LibGearExam:ScanItemLink(ExaminerItemLink,itemStats1);
+			LibGearExam:ScanItemLink(PlayerItemLink,itemStats2);
+			-- Compare both items
+			if not (PlayerItemLink == nil) then
+				AzMsg("--- Comparing "..ExaminerItemLink.." over "..PlayerItemLink.." |r---");
+				for statToken, statName in next, LibGearExam.StatNames do
+					if (itemStats1[statToken] or itemStats2[statToken]) then
+						if (not cfg.percentRatings) then
+						end
+						local statText = LibGearExam:GetStatValue(statToken,itemStats1,itemStats2,UnitLevel("player"),cfg.combineAdditiveStats,cfg.percentRatings);
+						AzMsg(format("%s = |1%s|r.",statName,statText));
+					end			
+				end
+			else
+				AzMsg("---|1 Cannot compare "..ExaminerItemLink.."|1 since you don't have any item in that slot. |r---");
+			end
 		elseif (button == "LeftButton") then
 			local editBox = ChatEdit_GetActiveWindow();
 			if (IsModifiedClick("DRESSUP")) then

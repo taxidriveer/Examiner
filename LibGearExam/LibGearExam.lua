@@ -432,10 +432,8 @@ function LGE:GetStatValue(statToken,statTable,compareTable,level,combineAdditive
 	-- OPTION: Give Rating Values in Percent
 	local valuePct, rating;
 	if (self.StatRatingBaseTable[statToken]) then
-		local color = "|cff80ff80";
 		rating = self:GetRatingInPercent(statToken,value,level) or 0; -- tip ?
 		valuePct = tonumber(format("%.2f",rating)); -- tip ?
-		value = color..value.."%"; -- do we color it ? "%" looks out of place...
 	end
 	-- Do not modify the value further if we are just getting the compare value (compareTable == true)
 	if (compareType == "boolean") then
@@ -460,6 +458,11 @@ function LGE:GetStatValue(statToken,statTable,compareTable,level,combineAdditive
 	if (percentRatings) and (self.StatRatingBaseTable[statToken]) then
 		return valuePct, value;
 	else
+		 -- do we color it ? "%" looks out of place...
+		if (self.StatRatingBaseTable[statToken]) then
+			local color = "|cff80ff80";
+			value = color..value.."%";
+		end	
 		return value, valuePct;
 	end
 end
