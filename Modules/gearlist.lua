@@ -2,7 +2,7 @@ local ex = Examiner;
 
 -- Module
 local mod = ex:CreateModule("Gear","Gear List (beta)");
-mod.help = "Lists gear with enchants and gems, or the lack thereof";
+mod.help = "Lists gear with enchants or the lack thereof";
 mod:CreatePage(true,"");
 mod:HasButton(true);
 
@@ -25,16 +25,16 @@ local IGNORED_SLOTS = {
 
 -- List of item slots that can be enchanted. The value is at what itemLevel we find the first valid enchant.
 local ENCHANT_SLOT_LEVEL = {
-	INVTYPE_HEAD = nil;		-- MoP: Head enchants removed :( -- Used to be TBC faction head enchants or Vanilla Librams @ lvl60
+	INVTYPE_HEAD = 55;		-- Librams @ lvl60
 	INVTYPE_NECK = nil;
-	INVTYPE_SHOULDER = 60;	-- Argent Dawn & ZG enchants?
+	INVTYPE_SHOULDER = 55;	-- Argent Dawn & ZG enchants
 	INVTYPE_CLOAK = 1;
 	INVTYPE_CHEST = 1;
 	INVTYPE_ROBE = 1;
 	INVTYPE_WRIST = 1;
 	INVTYPE_HAND = 1;
 	INVTYPE_WAIST = nil;	-- Ignore this, only Engineers can enchant belts
-	INVTYPE_LEGS = 60;		-- TBC leg enchants or Vanilla Librams
+	INVTYPE_LEGS = 55;		-- Librams @ lvl60
 	INVTYPE_FEET = 1;
 	INVTYPE_FINGER = nil;	-- Enchanters can do rings, but we cannot check what profession someone is
 	INVTYPE_TRINKET = nil;
@@ -48,7 +48,7 @@ local ENCHANT_SLOT_LEVEL = {
 	INVTYPE_2HWEAPON = 1;
 	INVTYPE_SHIELD = 1;
 	INVTYPE_HOLDABLE = 300;
-	INVTYPE_RANGED = 1;			-- Az: Removed?
+	INVTYPE_RANGED = 1;			
 	INVTYPE_RANGEDRIGHT = 1,	-- Not sure what is different with the "right" version
 	INVTYPE_THROWN = nil;
 	INVTYPE_RELIC = nil;
