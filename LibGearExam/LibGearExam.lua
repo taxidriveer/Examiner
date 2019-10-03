@@ -449,7 +449,7 @@ function LGE:GetStatValue(statToken,statTable,compareTable,level,combineAdditive
 	local valuePct, rating;
 	if (self.StatRatingBaseTable[statToken]) then
 		rating = self:GetRatingInPercent(statToken,value,level) or 0; -- tip ?
-		valuePct = tonumber(format("%.2f",rating, "test")); -- tip ?
+		valuePct = tonumber(format("%.2f",rating)); -- tip ?
 	end
 	-- Do not modify the value further if we are just getting the compare value (compareTable == true)
 	if (compareType == "boolean") then

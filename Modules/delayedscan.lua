@@ -15,7 +15,7 @@ mod:AddOption({ var = "delayedScanFix", default = true, label = "Delayed Gear Sc
 local frmTimer = CreateFrame("Frame");
 
 -- Variables
-local DELAYED_AMOUNT = 0.25;		-- Increase this if delay is not long enough to cache all items. Az: Perhaps dynamically get this value from a multiplical of latency in GetNetStats()?
+local DELAYED_AMOUNT = 0.5;		-- Increase this if delay is not long enough to cache all items. Az: Perhaps dynamically get this value from a multiplical of latency in GetNetStats()?
 local applyDelay = false;
 local delayTimer;
 
