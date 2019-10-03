@@ -44,6 +44,24 @@ LibGearExam.Patterns = {
 	
 	{ p = "Improves your chance to get a critical strike with spells by (%d+)%%%.", s = { "SPELLCRIT" }},
 	{ p = "Improves your chance to hit with spells by (%d+)%%%.", s = { "SPELLHIT" }},
+	
+	
+	-- Skill Bonuses
+	{ p = "Increased Daggers %+(%d+)%.", s = { "DAGGERSKILL" }},
+	
+	{ p = "Increased Axes %+(%d+)%.", s = { "ONEAXESKILL" }},
+	{ p = "Increased Two%-handed Axes %+(%d+)%.", s = { "TWOAXESKILL" }},
+	
+	{ p = "Increased Swords %+(%d+)%.", s = { "ONESWORDSKILL" }},
+	{ p = "Increased Two%-handed Swords %+(%d+)%.", s = { "TWOSWORDSKILL" }},	
+	
+	{ p = "Increased Maces %+(%d+)%.", s = { "ONEMACESKILL" }},
+	{ p = "Increased Two%-handed Maces %+(%d+)%.", s = { "TWOMACESKILL" }},
+	
+	{ p = "Increased Bows %+(%d+)%.", s = { "BOWSKILL" }},
+	{ p = "Increased Guns %+(%d+)%.", s = { "GUNSSKILL" }},
+	{ p = "Increased Crossbows %+(%d+)%.", s = { "CROSSBOWSKILL" }},
+		
 	-- OK
 
     --  Equip: Melee & Ranged

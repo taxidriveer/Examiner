@@ -49,7 +49,25 @@ LibGearExam.Patterns = {
 	{ p = "Augmente vos chances d'infliger un coup critique avec vos sorts de (%d+)\37%.", s = "SPELLCRIT" },
 	{ p = "Augmente vos chances de toucher avec des sorts de (%d+)\37%.", s = "SPELLHIT" },
 	-- OK
-
+	
+	
+	-- Skill Bonuses
+	{ p = "Dagues augmentées de (%d+)%.", s = { "DAGGERSKILL" }},
+	
+	{ p = "Haches augmentées de (%d+)%.", s = { "ONEAXESKILL" }},
+	{ p = "Haches à deux mains augmentées de (%d+)%.", s = { "TWOAXESKILL" }},
+	
+	{ p = "Epées augmentées de (%d+)%.", s = { "ONESWORDSKILL" }},
+	{ p = "Epées à deux mains augmentées de (%d+)%.", s = { "TWOSWORDSKILL" }},	
+	
+	{ p = "Masses augmentées de (%d+)%.", s = { "ONEMACESKILL" }},
+	{ p = "Masses à deux mains augmentées de (%d+)%.", s = { "TWOMACESKILL" }},
+	
+	{ p = "Arcs augmentés de (%d+)%.", s = { "BOWSKILL" }},
+	{ p = "Armes à feu augmentées de (%d+)%.", s = { "GUNSSKILL" }},
+	{ p = "Arbalètes augmentées de (%d+)%.", s = { "CROSSBOWSKILL" }},
+	
+	
     --  Equip: Melee & Ranged
 	{ p = "+(%d+) à la puissance d'attaque%.", s = "AP" },
 	{ p = "Augmente de (%d+) la puissance d'attaque pour les formes de félin, d'ours, d'ours redoutable et de sélénien uniquement%.", s = "APFERAL" }, -- Still exist ?

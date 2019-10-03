@@ -106,6 +106,22 @@ LGE.StatNames = {
 
 	HP5 = ITEM_MOD_HEALTH_REGEN_SHORT,
 	MP5 = ITEM_MOD_POWER_REGEN0_SHORT,
+	
+	-- Can we find a global variable for these one ?
+	DAGGERSKILL = "Increased Daggers Skill",
+	
+	ONEAXESKILL = "Increased Axes Skill",
+	TWOAXESKILL = "Increased Two-Handed Axes Skill",
+
+	ONESWORDSKILL = "Increased Swords Skill",
+	TWOSWORDSKILL = "Increased Two-Handed Swords Skill",
+	
+	ONEMACESKILL = "Increased Maces Skill",
+	TWOMACESKILL = "Increased Two-Handed Maces Skill",
+	
+	BOWSKILL = "Increased Bows skill",
+	GUNSSKILL = "Increased Guns skill",
+	CROSSBOWSKILL = "Increased Crossbows Skill",
 };
 
 -- Create a sorted List of Stats
@@ -433,7 +449,7 @@ function LGE:GetStatValue(statToken,statTable,compareTable,level,combineAdditive
 	local valuePct, rating;
 	if (self.StatRatingBaseTable[statToken]) then
 		rating = self:GetRatingInPercent(statToken,value,level) or 0; -- tip ?
-		valuePct = tonumber(format("%.2f",rating)); -- tip ?
+		valuePct = tonumber(format("%.2f",rating, "test")); -- tip ?
 	end
 	-- Do not modify the value further if we are just getting the compare value (compareTable == true)
 	if (compareType == "boolean") then
