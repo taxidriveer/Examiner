@@ -7,6 +7,7 @@ Fan Update
 * Basic item scan for hit/crit % (English and French clients)
 * LibGearExam pattern update for en-us and fr-fr
 * Fixed enchant name in gearlist module
+* Currently support English and French clients (Korean support is experimental)
 
 To do :
 * Enable/Disable PVP and gearlist module in options if possible
