@@ -6,12 +6,12 @@ Fan Update
 * Sort average item level fix
 * Basic item scan for hit/crit %
 * Fixed enchant name in gearlist module
-* Currently support English, French and Deutsch clients (Korean support is experimental)
+* Currently support English, French, Spanish and Deutsch clients (Korean support is experimental)
 
 To do :
 * Enable/Disable PVP and gearlist module in options if possible
 * Fix bug when you need to inspect a target twice to get the all the stats
-* Spanish and Russian translation
+* Portuguese and Russian translation
 
 ![alt text](https://i.imgur.com/voq7odP.jpg)
 
