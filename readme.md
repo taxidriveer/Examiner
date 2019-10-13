@@ -4,8 +4,7 @@ Fan Update
 * Re-added ranged weapon
 * Item level fix
 * Sort average item level fix
-* Basic item scan for hit/crit % (English and French clients)
-* LibGearExam pattern update for en-us and fr-fr
+* Basic item scan for hit/crit %
 * Fixed enchant name in gearlist module
 * Currently support English, French and Deutsch clients (Korean support is experimental)
 
