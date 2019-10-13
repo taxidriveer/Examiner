@@ -4,15 +4,14 @@ Fan Update
 * Re-added ranged weapon
 * Item level fix
 * Sort average item level fix
-* Basic item scan for hit/crit % (English and French clients)
-* LibGearExam pattern update for en-us and fr-fr
+* Basic item scan for hit/crit %
 * Fixed enchant name in gearlist module
-* Currently support English and French clients (Korean support is experimental)
+* Currently support English, French and Deutsch clients (Korean support is experimental)
 
 To do :
 * Enable/Disable PVP and gearlist module in options if possible
 * Fix bug when you need to inspect a target twice to get the all the stats
-* Deutsch, Spanish and Russian translation
+* Spanish and Russian translation
 
 ![alt text](https://i.imgur.com/voq7odP.jpg)
 
