@@ -2,7 +2,7 @@
 -- Pattern entries marked with an "alert" value will cause Examiner to show a warning message,
 -- { p = "Pattern", s = "Category", alert = 1 },
 -- telling that the pattern is thought of as no longer in use. These patterns should eventually be deleted.
--- Modified by Grome of EU-Sulfuron for patch 1.13.2 September 26th 2019
+-- Modified by Grome of EU-Sulfuron for patch 1.13.2 October 13th 2019
 
 if GetLocale() ~= "frFR" then
 	return;
@@ -17,7 +17,7 @@ LibGearExam.Patterns = {
 	{ p = "%+(%d+) Esprit", s = "SPI" },
 	
 	{ p = "Armure \58 (%d+)", s = "ARMOR" },
-	-- OK
+
 		
 	--  Resistances (Exclude the Resist-"ance" then it picks up armor patches as well)  --
 	{ p = "%+(%d+) à la résistance Arcane", s = "ARCANERESIST" },
@@ -26,7 +26,7 @@ LibGearExam.Patterns = {
 	{ p = "%+(%d+) à la résistance Givre", s = "FROSTRESIST" },
 	{ p = "%+(%d+) à la résistance Ombre", s = "SHADOWRESIST" },
 	{ p = "%+(%d+) à toutes les résistances", s = { "ARCANERESIST", "FIRERESIST", "NATURERESIST", "FROSTRESIST", "SHADOWRESIST" } },
-	-- OK
+
 
 	--  Equip: Defense  --
 	{ p = "Défense augmentée de (%d+)%.", s = "DEFENSE" },
@@ -40,7 +40,7 @@ LibGearExam.Patterns = {
 	{ p = "Augmente le score de blocage de votre bouclier de (%d+)%.", s = "BLOCKVALUE" },
 	
 	{ p = "Bloquer : (%d+)", s = "BLOCKVALUE" },
-	-- OK
+
 
 	--  Equip: Melee & Ranged & Magic  --
 	{ p = "Augmente vos chances d'infliger un coup critique de (%d+)%%%.", s = "CRIT" },
@@ -48,7 +48,7 @@ LibGearExam.Patterns = {
 	
 	{ p = "Augmente vos chances d'infliger un coup critique avec vos sorts de (%d+)\37%.", s = "SPELLCRIT" },
 	{ p = "Augmente vos chances de toucher avec des sorts de (%d+)\37%.", s = "SPELLHIT" },
-	-- OK
+
 	
 	
 	-- Skill Bonuses
@@ -70,11 +70,12 @@ LibGearExam.Patterns = {
 	
     --  Equip: Melee & Ranged
 	{ p = "+(%d+) à la puissance d'attaque%.", s = "AP" },
-	{ p = "Augmente de (%d+) la puissance d'attaque pour les formes de félin, d'ours, d'ours redoutable et de sélénien uniquement%.", s = "APFERAL" }, -- Still exist ?
-	-- OK
+	{ p = "Augmente de (%d+) la puissance d'attaque pour les formes de félin, d'ours, d'ours redoutable et de sélénien uniquement%.", s = "APFERAL" },
+
 	
 	--  Equip: Magic --
 	{ p = "Augmente les dégâts et les soins produits par les sorts et effets magiques de (%d+) au maximum%.", s = { "SPELLDMG", "HEAL" } },
+	{ p = "Augmente les soins prodigués par les sorts et effets de (%d+) au maximum%.", s = { "HEAL" } },
 
 	{ p = "dégâts infligés par les sorts et effets des Arcanes de (%d+) au maximum%.", s = "ARCANEDMG" },
 	{ p = "dégâts infligés par les sorts et effets de Feu de (%d+) au maximum%.", s = "FIREDMG" },
@@ -82,7 +83,7 @@ LibGearExam.Patterns = {
 	{ p = "dégâts infligés par les sorts et effets de Givre de (%d+) au maximum%.", s = "FROSTDMG" },
 	{ p = "dégâts infligés par les sorts et effets d'Ombre de (%d+) au maximum%.", s = "SHADOWDMG" },
 	{ p = "dégâts infligés par les sorts et effets du Sacré (%d+) au maximum%.", s = "HOLYDMG" },
-	-- OK
+
 	
 	--  Health & Mana Per 5 Sec  --
 	{ p = "%+(%d+) à la régén. de mana", s = "MP5" },
@@ -90,7 +91,7 @@ LibGearExam.Patterns = {
 
 	{ p = "(%d+) points de vie toutes les 5 sec%.", s = "HP5" }, -- need to investigate why "rend" doesn't work
 	{ p = "(%d+) points de mana toutes les 5 sec", s = "MP5" }, -- need to investigate why "rend" doesn't work
-	-- OK
+
 
 	--  Enchants / Socket Bonuses / Mixed / Misc  --
 	{ p = "^Agilité %+(%d+)$", s = "AGI" },
@@ -120,5 +121,4 @@ LibGearExam.Patterns = {
 	{ p = "%+(%d+) aux dégâts des sorts de Givre", s = "FROSTDMG" },
 	{ p = "%+(%d+) aux dégâts des sorts d'Ombre", s = "SHADOWDMG" },
 	{ p = "%+(%d+) aux dégâts des sorts du Sacré", s = "HOLYDMG" },
-	-- OK
 };

@@ -2,7 +2,7 @@
 -- Pattern entries marked with an "alert" value will cause Examiner to show a warning message,
 -- { p = "Pattern", s = "Category", alert = 1 },
 -- telling that the pattern is thought of as no longer in use. These patterns should eventually be deleted.
--- Modified by Grome of EU-Sulfuron for patch 1.13.2 September 26th 2019
+-- Modified by Grome of EU-Sulfuron for patch 1.13.2 October 13th 2019
 
 LibGearExam.Patterns = {
 	--  Base Stats  --
@@ -62,15 +62,15 @@ LibGearExam.Patterns = {
 	{ p = "Increased Guns %+(%d+)%.", s = { "GUNSSKILL" }},
 	{ p = "Increased Crossbows %+(%d+)%.", s = { "CROSSBOWSKILL" }},
 		
-	-- OK
 
     --  Equip: Melee & Ranged
-	{ p = "%+(%d+) Attack Power", s = "AP" },
-	{ p = "Augmente de (%d+) la puissance d'attaque pour les formes de félin, d'ours, d'ours redoutable et de sélénien uniquement%.", s = "APFERAL" }, -- Still exist ?
-	-- Feral ?
-	
+	{ p = "%+(%d+) Attack Power%.", s = "AP" },
+	{ p = "%+(%d+) Attack Power in Cat, Bear, and Dire Bear forms only%.", s = "APFERAL" },
+
+
 	--  Equip: Magic --
 	{ p = "Increases damage and healing done by magical spells and effects by up to (%d+)%.", s = { "SPELLDMG", "HEAL" } },
+	{ p = "Increases healing done by spells and effects by up to (%d+)%.", s = { "HEAL" } },
 
 	{ p = "Increases damage done by arcane spells and effects by up to (%d+)%.", s = "ARCANEDMG" },
 	{ p = "Increases damage done by fire spells and effects by up to (%d+)%.", s = "FIREDMG" },
@@ -78,15 +78,14 @@ LibGearExam.Patterns = {
 	{ p = "Increases damage done by Frost spells and effects by up to (%d+)%.", s = "FROSTDMG" },
 	{ p = "Increases damage done by shadow spells and effects by up to (%d+)%.", s = "SHADOWDMG" },
 	{ p = "Increases damage done by holy spells and effects by up to (%d+)%.", s = "HOLYDMG" },
-	-- OK
-	
+
+
 	--  Health & Mana Per 5 Sec  --
 	{ p = "Restores (%d+) mana per 5 sec%.", s = "MP5" },
-	{ p = "%+(%d+) Mana Regen", s = "MP5" },
 
 	{ p = "Restores (%d+) health per 5 sec%.", s = "HP5"},
 	{ p = "(%d+) health every 5 sec%.", s = "HP5" },
-	-- OK
+
 
 	--  Enchants / Socket Bonuses / Mixed / Misc  --
 	{ p = "^Agility %+(%d+)$", s = "AGI" },
@@ -103,7 +102,7 @@ LibGearExam.Patterns = {
 	{ p = "^Reinforced Armor %+(%d+)$", s = "ARMOR" },
 	
 	{ p = "^Scope %(%+(%d+) Damage%)$", s = "RANGEDDMG" },
-	{ p = "%+(%d+)  ?Weapon Damage", s = "WPNDMG" },
+	{ p = "^Weapon Damage %+(%d+)$", s = "WPNDMG" },
 	
 	{ p = "^Healing Spells %+(%d+)$", s = "HEAL" },
 	{ p = "^Spell Damage %+(%d+)$", s = "SPELLDMG" },
@@ -116,5 +115,4 @@ LibGearExam.Patterns = {
 	{ p = "%+(%d+) Frost S?p?e?l?l? ?Damage", s = "FROSTDMG" },
 	{ p = "%+(%d+) Shadow S?p?e?l?l? ?Damage", s = "SHADOWDMG" },
 	{ p = "%+(%d+) Holy S?p?e?l?l? ?Damage", s = "HOLYDMG" },
-	-- OK
 };

@@ -1,179 +1,122 @@
--- German localization by Haldamir of Gorgonnash, 19.6. 2007
--- Modified by xonyx (aka Siphony of EU-Onyxia) for Patch 2.3, 15.11.2007 & 25.12.2007
--- Modified by Maxfunkey (aka Carambha of EU-Lordearon) for patch 3.0.2, October 30th 2008 & November 1st 2008
--- Modified by Thorakon (aka Pulgrim of EU-Alexstrasza) for WotLk, Patch 3.0.3, 13.12.2008
+-- For enchant and gem IDs, check out the following link: https://fr.classic.wowhead.com/enchanting
+-- Pattern entries marked with an "alert" value will cause Examiner to show a warning message,
+-- { p = "Pattern", s = "Category", alert = 1 },
+-- telling that the pattern is thought of as no longer in use. These patterns should eventually be deleted.
+-- Modified by Grome of EU-Sulfuron for patch 1.13.2 October 13th 2019
 
 if (GetLocale() ~= "deDE") then
 	return;
 end
 
 LibGearExam.Patterns = {
-	-- Base stats
-	{ p = "%+(%d+) St\195\164rke", s = "STR" },
+	--  Base Stats  --
+	{ p = "%+(%d+) Stärke", s = "STR" },
 	{ p = "%+(%d+) Beweglichkeit", s = "AGI" },
 	{ p = "%+(%d+) Ausdauer", s = "STA" },
-	-- { p = "Ausdauer %+(%d+)", s = "STA" }, -- WORKAROUND: Infused Amethyst (31116) => Energieerf�llter Amethyst (Thorakon: No longer needed with WotLk 3.0.3)		
 	{ p = "%+(%d+) Intelligenz", s = "INT" },
 	{ p = "%+(%d+) Willenskraft", s = "SPI" },
-	{ p = "(%d+) R\195\188stung", s = "ARMOR" }, -- Should catch all armor: Base armor, Armor enchants, Armor kits
+	
+	{ p = "+?(%d+) Rüstung", s = "ARMOR" },
 
-	-- Resistances (Exclude the Resist-"ance" then it picks up armor patches as well)
+		
+	--  Resistances (Exclude the Resist-"ance" then it picks up armor patches as well)  --
 	{ p = "%+(%d+) Arkanwiderstand", s = "ARCANERESIST" },
 	{ p = "%+(%d+) Feuerwiderstand", s = "FIRERESIST" },
 	{ p = "%+(%d+) Naturwiderstand", s = "NATURERESIST" },
 	{ p = "%+(%d+) Frostwiderstand", s = "FROSTRESIST" },
 	{ p = "%+(%d+) Schattenwiderstand", s = "SHADOWRESIST" },
-	{ p = "%+(%d+) Alle Widerstandsarten", s = { "ARCANERESIST", "FIRERESIST", "NATURERESIST", "FROSTRESIST", "SHADOWRESIST" } },
-	-- Void Sphere => Sph�re der Leere (already covered by "Alle Widerstandsarten")
-
-	-- Equip: Other
-	{ p = "Erh\195\182ht Eure Abh\195\164rtungswertung um (%d+)%.", s = "RESILIENCE" },
-	-- { p = "+(%d+) Abh\195\164rtungswertung%.", s = "RESILIENCE" }, -- MF:covers enchants and gems as well; Thora: causes double scan of set boni?
-
-	{ p = "Erh\195\182ht die Verteidigungswertung um (%d+)%.", s = "DEFENSE" },
-	{ p = "%+15 Ausweichwertung und Verteidigungswertung %+(%d+)", s = "DEFENSE" }, -- Thora: WotLk Shoulder Enchant
-	-- { p = "+(%d+) Verteidigungswertung%.", s = "DEFENSE" }, -- MF:covers enchants and gems as well
-	{ p = "Erh\195\182ht Eure Ausweichwertung um (%d+)%.", s = "DODGE" },
-	-- { p = "+(%d+) Ausweichwertung%.", s = "DODGE" },
-	{ p = "Erh\195\182ht Eure Parierwertung um (%d+)%.", s = "PARRY" },
-	-- { p = "+(%d+) Parierwertung%.", s = "PARRY" },
-	{ p = "Erh\195\182ht Eure Blockwertung um (%d+)%.", s = "BLOCK" },
-	-- { p = "+(%d+) Blockwert%.", s = "BLOCK" },
-
-	{ p = "Erh\195\182ht den Blockwert Eures Schildes um (%d+)%.", s = "BLOCKVALUE" },
-	{ p = "^(%d+) Blocken$", s = "BLOCKVALUE" }, -- Should catch only base block value from a shield -- translated by g3gg0
-	-- { p = "+(%d+) Block$.", s = "BLOCKVALUE" }, -- MF: accepts enchants and possible +blockvalue-gems as well
+	{ p = "%+(%d+) t?o? ?All Resistances", s = { "ARCANERESIST", "FIRERESIST", "NATURERESIST", "FROSTRESIST", "SHADOWRESIST" } },
 
 
-	-- Equip: Melee & Ranged
-	{ p = "Erh\195\182ht die Angriffskraft um (%d+)%.", s = "AP" },
-	{ p = "Erh\195\182ht Angriffskraft um (%d+)%.", s = "AP" }, -- Thora: New WotLK Pattern
-	{ p = "Erh\195\182ht Eure Angriffskraft um (%d+)%.", s = "AP" }, -- Thora: New WotLK Pattern
-	{ p = "Erh\195\182ht die Distanzangriffskraft um (%d+)%.", s = "RAP" },
-	{ p = "Erh\195\182ht die Angriffskraft in Katzengestalt, B\195\164rengestalt, Terrorb\195\164rengestalt oder Mondkingestalt um (%d+)%.", s = "APFERAL" },
-    --{ p = "Erh\195\182ht die Angriffskraft in Untotengestalt oder Zombiegestalt um (%d+)%.", s = "APUNDEAD" }, -- MF: unused for now
+	--  Equip: Defense  --
+	{ p = "Verteidigung %+(%d+)%.", s = "DEFENSE" },
 
-	{ p = "Erh\195\182ht Eure Waffenkundewertung um (%d+)%.", s = "EXPERTISE" },
-	{ p = "Erh\195\182ht Euren R\195\188stungsdurchschlag$ um (%d+)%.", s = "ARMORPENETRATION" },
-	{ p = "Erh\195\182ht den R\195\188stungsdurchschlagwert um (%d+)%.", s = "ARMORPENETRATION" }, -- Thora: New pattern in WotLk
-	{ p = "Erh\195\182ht Eure R\195\188stungsdurchschlagwertung um (%d+)%.", s = "ARMORPENETRATION" }, -- Thora: New pattern in WotLk
-	{ p = "+(%d+) R\195\188stungsdurchschlagwertung", s = "ARMORPENETRATION" }, -- Thora: New pattern in WotLk (Gems)
-	{ p = "+(%d+) R\195\188stungsdurchschlag%.", s = "ARMORPENETRATION" },
+	{ p = "Erhöht Eure Chance einem Angriff auszuweichen um (%d+)%%%.", s = "DODGE" },
 
-    --  Equip: Stats Which Improves Both Spells & Melee
-	{ p = "Erh\195\182ht kritische Trefferwertung um (%d+)%.", s = { "SPELLCRIT", "CRIT" } },  
-	{ p = "+(%d+) kritische Trefferwertung%.", s = {"SPELLCRIT", "CRIT" } },
-	{ p = "+(%d+) kritische Trefferwertung", s = {"SPELLCRIT", "CRIT" } }, -- Thora: not "." on Leg enchant etc.
-	{ p = "Erh\195\182ht Eure kritische Trefferwertung um (%d+)%.", s = { "SPELLCRIT", "CRIT" } },
-	{ p = "Erh\195\182ht Trefferwertung um (%d+)%.", s = { "SPELLHIT", "HIT" } },
-	{ p = "+(%d+) Trefferwertung%.", s = { "SPELLHIT", "HIT" } },
-	{ p = "Erh\195\182ht Eure Trefferwertung um (%d+)%.", s = { "SPELLHIT", "HIT" } },
-
-	{ p = "Erh\195\182ht Tempowertung um (%d+)%.", s = {"SPELLHASTE", "HASTE" } },
-	{ p = "+(%d+) Tempowertung%.", s = { "SPELLHASTE", "HASTE" } },
-
-    -- Equip (Magic only)
-	{ p = "Erh\195\182ht Eure Zauberdurchschlagskraft um (%d+)%.", s = "SPELLPENETRATION" },
-	{ p = "Erh\195\182ht Euren Zauberdurchschlag$ um (%d+)%.", s = "SPELLPENETRATION" }, -- MF: covers the alternate spelling as well now
-
-	{ p = "Erh\195\182ht die Zaubermacht um (%d+)%.", s = { "HEAL", "SPELLDMG" } }, -- Mf: maybe I could add some conversion to the old addheal later on? (Thora: would only be missleading in my opinion, healers should be accustomed to spellpower by now)
-	{ p = "Erh\195\182ht Zaubermacht um (%d+)%.", s = { "HEAL", "SPELLDMG" } }, -- Thora: new WotLk pattern
-	{ p = "Erh\195\182ht Eure Zaubermacht um (%d+)%.", s = { "HEAL", "SPELLDMG" } }, -- Thora: new WotLk pattern (Set Bonus of i=41554 etc.)
-	{ p = "Erh\195\182ht die Zaubermacht leicht%.", s = { "SPELLDMG", "HEAL" }, v = 6 }, -- Bronze Band of Force => Bronzeband der Kraft
-
+	{ p = "Erhöht Eure Chance Angriffe mit einem Schild zu blocken um (%d+)%%%.", s = "BLOCK" },
 	
-	--  Health & Mana Per 5 Sec  -- (xonyx: Different than the Englisch version; Thora: Maybe some of these are no longer used?)
-	{ p = "Stellt alle 5 Sek%. %+(%d+) Mana wieder her%.", s = "MP5" },
-	{ p = "+(%d+) Mana alle 5 Sekunden%.", s = "MP5" }, 
-	{ p = "(%d+) Mana alle 5 Sek", s = "MP5" },
-	{ p = "(%d+) Mana alle 5 Sekunden", s = "MP5" },
-	{ p = "(%d+) Mana per 5 Sek%.", s = "MP5" }, -- Covers equip bonus as well as socket bonus
-	{ p = "Mana Regeneration (%d+) alle 5 Sek%.", s = "MP5" },
-	{ p = "alle 5 Sek%. (%d+) Mana", s = "MP5" },
-	{ p = "Alle 5 Sek%. (%d+) Mana", s = "MP5" },
-	{ p = "+(%d+) Manaregeneration%.", s = "MP5" },
-	{ p = "Erh�ht Eure Manaregeneration um +(%d+)%.", s = "MP5" }, -- Thora: New pattern in WotLk
-
-	{ p = "+(%d) Gesundheit alle 5 Sek%.", s = "HP5" },
-	{ p = "Stellt alle 5 Sek%. (%d+) Gesundheit wieder her%.", s = "HP5" },
-
-	-- Enchants / Gems / Socket Bonuses / Mixed / Misc
-	{ p = "^%+(%d+) GP$", s = "HP" }, -- Thora: The following 3 were scanned 2 times before, I left them here and deleted the duplicated
-	{ p = "^%+(%d+) Gesundheit$", s = "HP" },
-	{ p = "^%+(%d+) Mana$", s = "MP" },
-
-	{ p = "^Seelenfrost$", s = { "FROSTDMG", "SHADOWDMG" }, v = 54 },
-	{ p = "^Sonnenfeuer$", s = { "ARCANEDMG", "FIREDMG" }, v = 50 },
-	{ p = "^Vitalit\195\164t$", s = { "MP5", "HP5" }, v = 4 },
-	{ p = "^Eiswandler$", s = { "HIT", "SPELLHIT", "CRIT", "SPELLCRIT" }, v = 12 },
-	{ p = "^Unb\195\164ndigkeit$", s = "AP", v = 70 }, -- Thora: BC Enchant, greater version is displayed as "+85 Angriffskraft"
-	{ p = "^Schnelligkeit der Katze$", s = "AGI", v = 6 }, --Thora: BC Enchant, not sure if this is needed, or if it is displayed as 6 Agi + Runspeed now
-	{ p = "^Vitalit\195\164t der Tuskarr$", s = "STA", v = 15 }, -- Thora: New WotLK Recipe
-
-	{ p = "%+(%d+) Alle Werte", s = { "STR", "AGI", "STA", "INT", "SPI" } },
-
-	{ p = "%+(%d+) Arkanzauber", s = "ARCANEDMG" },
-	{ p = "%+(%d+) Feuerschaden", s = "FIREDMG" },
-	{ p = "%+(%d+) Naturschaden", s = "NATUREDMG" },
-	{ p = "%+(%d+) Frostschaden", s = "FROSTDMG" },
-	{ p = "%+(%d+) Schattenschaden", s = "SHADOWDMG" },
-	{ p = "%+(%d+) Heiligschaden", s = "HOLYDMG" },
-
-	{ p = "%+(%d+) Verteidigung", s = "DEFENSE" }, -- Exclude "Rating" from this pattern due to Paladin ZG Enchant
-	{ p = "%+(%d+) Ausweichwertung", s = "DODGE" },
-	{ p = "%+(%d+) Parierwertung", s = "PARRY" },
-	{ p = "%+(%d+) Blockwertung", s = "BLOCK" },
-	{ p = "%+(%d+) Blockwert$", s = "BLOCKVALUE" }, -- workaround by g3gg0
-	{ p = "%+(%d+) Blockwert ", s = "BLOCKVALUE" }, -- workaround by g3gg0
-
-	{ p = "%+(%d+) Angriffskraft", s = "AP" },
-	{ p = "%+(%d+) Distanzangriffskraft", s = "RAP" },
-	-- { p = "%+(%d+) Trefferwertung", s = "HIT" }, -- Thora: Covered below (melee and caster stat is the same now)
-	-- { p = "%+(%d+) Crit Rating", s = "CRIT" }, -- Thora: Can't imagine this is used in German version
-	-- { p = "%+(%d+) Kritische Trefferwertung", s = "CRIT" }, -- Thora: Covered below (melee and caster stat is the same now)
-	{ p = "%+(%d+) Abh\195\164rtung", s = "RESILIENCE" },
-	-- { p = "%+(%d+) Tempowertung", s = "HASTE" }, -- Thora: Covered below (melee and caster stat is the same now)
-	{ p = "%+(%d+) Waffenkundewertung", s = "EXPERTISE" },
-
+	{ p = "Erhöht Eure Chance einen Angriff zu parieren um (%d+)%%%.", s = "PARRY" },
 	
-	{ p = "%+(%d+) Zaubermacht", s = { "SPELLDMG", "HEAL" } },
+	{ p = "Erhöht den Blockwert Eures Schildes um (%d+)%.", s = "BLOCKVALUE" },
 	
-	-- Should no longer be relavent for WotLK, but keeping them in case something turns up on enchants I've yet to see
-	-- { p = "%+(%d+) Schadenszauber", s = "SPELLDMG" },
-	-- { p = "%+(%d+) Zauberkraft", s = { "SPELLDMG", "HEAL" } }, 
-	-- { p = "%+(%d+) Schaden und Heilzauber", s = { "SPELLDMG", "HEAL" } },
-	-- { p = "%+(%d+) Heilung", s = "HEAL" },
-	-- { p = "%+(%d+) Heilzauber", s = "HEAL" },
-	{ p = "%+(%d+) Trefferwertung", s = { "SPELLHIT", "HIT" } }, -- works fine now with Mage ZG enchant
-	{ p = "%+(%d+) Kritische Trefferwertung", s = { "SPELLCRIT", "CRIT" } },
-	{ p = "%+(%d+) Tempowertung", s = { "HASTE", "SPELLHASTE" } },
-	-- { p = "%+(%d+) Critical Rating", s = "SPELLCRIT", "CRIT" }, -- Thora: Can't imagine this is used in German version
-	-- { p = "%+(%d+) Critical Strike Rating", s = "SPELLCRIT", "CRIT" }, -- Thora: Can't imagine this is used in German version
-	{ p = "%+(%d+) Zauberdurchschlagskraft", s = "SPELLPENETRATION" },
+	{ p = "^(%d+) Blocken$", s = "BLOCKVALUE" },
 
 
-	{ p = "%+(%d+) Waffenschaden", s = "WPNDMG" },
-	{ p = "+(%d+) Distanzwaffenschaden%.", s = "RANGEDDMG" },
-	{ p = "^Zielfernrohr %(%+(%d+) Schaden%)$", s = "RANGEDDMG" }, -- translated by g3gg0
-
-	-- D�monenblut (Demons's Blood) 
-	{ p = "Verbessert Verteidigungswertung um 5, Schattenwiderstand um 10 sowie Eure normale Gesundheitsregeneration um 3%.", s = { "DEFENSE", "SHADOWRESIST", "HP5" }, v = { 5, 10, 3 } },
+	--  Equip: Melee & Ranged & Magic  --
+	{ p = "Erhöht Eure Chance einen kritischen Treffer zu erzielen um (%d+)%%%.", s = { "CRIT" }},
+	{ p = "Verbessert Eure Trefferchance um (%d+)%%%.", s = { "HIT" }},
 	
-	-- Void Star Talisman (Warlock T5 Class Trinket)
-	{ p = "Erh\195\182ht die Widerst\195\164nde Eures Begleiters um 130 und Eure Zaubermacht um bis zu 48%.", s = { "SPELLDMG", "HEAL" }, v = 48 }, 
+	{ p = "Erhöht Eure Chance einen kritischen Treffer durch Zauber zu erzielen um (%d+)%%%.", s = { "SPELLCRIT" }},
+	{ p = "Erhöht Eure Chance mit Zaubern zu treffen um (%d+)%%%.", s = { "SPELLHIT" }},
+	
+	
+	-- Skill Bonuses
+	{ p = "Dolche %+(%d+)%.", s = { "DAGGERSKILL" }},
+	
+	{ p = "Äxte %+(%d+)%.", s = { "ONEAXESKILL" }},
+	{ p = "Zweihandäxte %+(%d+)%.", s = { "TWOAXESKILL" }},
+	
+	{ p = "Schwerter %+(%d+)%.", s = { "ONESWORDSKILL" }},
+	{ p = "Zweihandschwerter %+(%d+)%.", s = { "TWOSWORDSKILL" }},	
+	
+	{ p = "Streitkolben %+(%d+)%.", s = { "ONEMACESKILL" }},
+	{ p = "Zweihandstreitkolben %+(%d+)%.", s = { "TWOMACESKILL" }},
+	
+	{ p = "Bogen %+(%d+)%.", s = { "BOWSKILL" }},
+	{ p = "Schusswaffen %+(%d+)%.", s = { "GUNSSKILL" }},
+	{ p = "Armbrüste %+(%d+)%.", s = { "CROSSBOWSKILL" }},
+	
 
-	-- Temp Enchants (Disabled as they are not part of "gear" stats)
-	--{ p = "Schwaches Mana\195\182l", s = "MP5", v = 4 },
-	--{ p = "Geringes Mana\195\182l", s = "MP5", v = 8 },
-	--{ p = "\195\156berragendes Mana\195\182l", s = "MP5", v = 14 },
-	--{ p = "Hervorragendes Mana\195\182l", s = { "MP5", "HEAL" }, v = { 12, 25 } },
+    --  Equip: Melee & Ranged
+	{ p = "%+(%d+) Angriffskraft%.", s = "AP" },
+	{ p = "%+(%d+) Angriffskraft in Katzengestalt Bärengestalt oder Terrorbärengestalt%.", s = "APFERAL" },
+	
+	
+	--  Equip: Magic --
+	{ p = "Erhöht durch Zauber und magische Effekte zugefügten Schaden und Heilung um bis zu (%d+)%.", s = { "SPELLDMG", "HEAL" } },
+	{ p = "Erhöht durch Zauber und Effekte verursachte Heilung um bis zu (%d+)%.", s = { "HEAL" } },
 
-	--{ p = "Schwaches Zauber\195\182l", s = "SPELLDMG", v = 8 },
-	--{ p = "Geringes Zauber\195\182l", s = "SPELLDMG", v = 16 },
-	--{ p = "Zauber\195\182l", v = 24 },
-	--{ p = "\195\156berragendes Zauber\195\182l", s = "SPELLDMG", v = 42 },
-	--{ p = "Hervorragendes Zauber\195\182l", s = { "SPELLDMG", "SPELLCRIT" }, v = { 36, 14 } },
+	{ p = "Erhöht durch Arkanzauber und Arkaneffekte zugefügten Schaden um bis zu (%d+)%.", s = "ARCANEDMG" },
+	{ p = "Erhöht durch Feuerzauber und Feuereffekte zugefügten Schaden um bis zu (%d+)%.", s = "FIREDMG" },
+	{ p = "Erhöht durch Naturzauber und Natureffekte zugefügten Schaden um bis zu (%d+)%.", s = "NATUREDMG" },
+	{ p = "Erhöht durch Frostzauber und Frosteffekte zugefügten Schaden um bis zu (%d+)%.", s = "FROSTDMG" },
+	{ p = "Erhöht durch Schattenzauber und Schatteneffekte zugefügten Schaden um bis zu (%d+)%.", s = "SHADOWDMG" },
+	{ p = "Erhöht durch Heiligzauber und Heiligeffekte zugefügten Schaden um bis zu (%d+)%.", s = "HOLYDMG" },
+	
+	
+	--  Health & Mana Per 5 Sec  --
+	{ p = "Stellt alle 5 Sek%. (%d+) Punkt%(e%) Mana wieder her%.", s = "MP5" },
 
-	-- Future Patterns (Disabled)
-	--{ p = "When struck in combat inflicts (%d+) .+ damage to the attacker.", s = "DMGSHIELD" },
+	{ p = "Stellt alle 5 Sek%. (%d+) Gesundheit wieder her%.", s = "HP5"},
+	{ p = "Stellt alle 5 Sek%. (%d+) Punkt%(e%) Gesundheit wieder her%.", s = "HP5" },
+
+
+	--  Enchants / Socket Bonuses / Mixed / Misc  --
+	{ p = "^Beweglichkeit %+(%d+)$", s = "AGI" },
+	{ p = "^Ausdauer %+(%d+)$", s = "STA" },
+	{ p = "^Stärke %+(%d+)$", s = "STR" },
+	{ p = "^Intelligenz %+(%d+)$", s = "INT" },
+	{ p = "^Willenskraft %+(%d+)$", s = "SPI" },
+	
+	{ p = "^Gesundheit %+(%d+)$", s = "HP" },
+	{ p = "^HP %+(%d+)$", s = "HP" },
+	
+	{ p = "^Mana %+(%d+)$", s = "MP" },
+	
+	{ p = "^Verstärkte Rüstung %+(%d+)$", s = "ARMOR" },
+	
+	{ p = "^Zielfernrohr %(%+(%d+) Schaden%)$", s = "RANGEDDMG" },
+	{ p = "^Waffenschaden %+(%d+)$", s = "WPNDMG" },
+	
+	{ p = "^Heilzauber %+(%d+)$", s = "HEAL" },
+	{ p = "^%+(%d+) Zauberschaden$", s = "SPELLDMG" },
+
+	{ p = "Alle Werte %+(%d+)", s = { "STR", "AGI", "STA", "INT", "SPI" } },
+
+	-- { p = "%+(%d+) Arcane S?p?e?l?l? ?Damage", s = "ARCANEDMG" },
+	{ p = "Feuerschaden %+(%d+)$", s = "FIREDMG" },
+	-- { p = "%+(%d+) Nature S?p?e?l?l? ?Damage", s = "NATUREDMG" },
+	{ p = "Frostschaden %+(%d+)$", s = "FROSTDMG" },
+	{ p = "Schattenschaden %+(%d+)$", s = "SHADOWDMG" },
+	-- { p = "%+(%d+) Holy S?p?e?l?l? ?Damage", s = "HOLYDMG" },
 };
