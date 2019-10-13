@@ -11,6 +11,8 @@ Fan Update
 
 To do :
 * Enable/Disable PVP and gearlist module in options if possible
+* Fix bug when you need to inspect a target twice to get the all the stats
+* Deutsch, Spanish and Russian translation
 
 ![alt text](https://i.imgur.com/voq7odP.jpg)
 
