@@ -2,7 +2,7 @@
 -- Pattern entries marked with an "alert" value will cause Examiner to show a warning message,
 -- { p = "Pattern", s = "Category", alert = 1 },
 -- telling that the pattern is thought of as no longer in use. These patterns should eventually be deleted.
--- Modified by Grome of EU-Sulfuron for patch 1.13.2 October 13th 2019
+-- Modified by Grome of EU-Sulfuron for patch 1.13.2 September 26th 2019
 
 if GetLocale() ~= "frFR" then
 	return;

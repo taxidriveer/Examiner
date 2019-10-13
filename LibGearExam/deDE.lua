@@ -25,7 +25,7 @@ LibGearExam.Patterns = {
 	{ p = "%+(%d+) Naturwiderstand", s = "NATURERESIST" },
 	{ p = "%+(%d+) Frostwiderstand", s = "FROSTRESIST" },
 	{ p = "%+(%d+) Schattenwiderstand", s = "SHADOWRESIST" },
-	{ p = "%+(%d+) t?o? ?All Resistances", s = { "ARCANERESIST", "FIRERESIST", "NATURERESIST", "FROSTRESIST", "SHADOWRESIST" } },
+	{ p = "%+(%d+) zu allen Widerstandsarten.", s = { "ARCANERESIST", "FIRERESIST", "NATURERESIST", "FROSTRESIST", "SHADOWRESIST" } },
 
 
 	--  Equip: Defense  --
@@ -99,7 +99,7 @@ LibGearExam.Patterns = {
 	{ p = "^Willenskraft %+(%d+)$", s = "SPI" },
 	
 	{ p = "^Gesundheit %+(%d+)$", s = "HP" },
-	{ p = "^HP %+(%d+)$", s = "HP" },
+	-- { p = "^HP %+(%d+)$", s = "HP" },
 	
 	{ p = "^Mana %+(%d+)$", s = "MP" },
 	
