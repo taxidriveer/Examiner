@@ -10,7 +10,7 @@ Fan Update
 
 To do :
 * Enable/Disable PVP and gearlist module in options if possible
-* Fix bug when you need to inspect a target twice to get the all the stats
+* Fix bug when you need to load an unit twice in the cache to get the all the stats
 * Portuguese and Russian translation
 
 ![alt text](https://i.imgur.com/voq7odP.jpg)
