@@ -620,6 +620,11 @@ function ex:InspectReady(guid)
 		end
 		-- Scan Gear & Post InspectReady
 		self:ScanGear(unit);
+		-- We rebuild the stat list since all items are not fully loaded. This need to be rewriten, can we use ContinueOnItemLoad(function() ?
+		C_Timer.After(0.1, function()
+			self:ScanGear(unit);	
+		end)
+		
 		self:ShowModulePage();
 		self:SendModuleEvent("OnInspectReady",unit,guid);
 		-- Cache
