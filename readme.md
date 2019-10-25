@@ -9,8 +9,7 @@ Fan Update
 * Currently support English, French, Spanish and Deutsch clients (Korean support is experimental)
 
 To do :
-* Enable/Disable PVP and gearlist module in options if possible
-* Fix bug when you need to load an unit twice in the cache to get the all the stats
+* Enable/Disable PVP, gearlist and item usage module in options
 * Portuguese and Russian translation
 
 ![alt text](https://i.imgur.com/voq7odP.jpg)
