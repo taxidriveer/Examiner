@@ -1,4 +1,5 @@
 local ex = Examiner;
+local cfg;
 
 -- Module
 local mod = ex:CreateModule(PVP,PLAYER_V_PLAYER);
@@ -9,15 +10,32 @@ mod.canCache = true;
 
 -- Variables
 local labels = {};
-local arena = {};
 
 -- Data Variables
 local hd = {};
 local ad = { {}, {}, {} };
 
+-- Config
+mod:AddOption({ var = "pvpbutton", default = false, label = "Display PvP Tab", tip = "If enabled Examiner will display the PvP tab. \nNot working in WoW Classic phase 1." });
+
+
 --------------------------------------------------------------------------------------------------------
 --                                           Module Scripts                                           --
 --------------------------------------------------------------------------------------------------------
+
+-- OnInitialize
+function mod:OnInitialize()
+	cfg = ex.cfg;
+end
+
+-- OnConfigChanged
+function mod:OnConfigChanged()
+	if cfg.pvpbutton then
+		mod:HasButton(true);
+	else
+		mod:HasButton(false);
+	end
+end
 
 -- OnInspect
 function mod:OnInspect(unit)
@@ -32,6 +50,11 @@ end
 -- OnHonorReady
 function mod:OnHonorReady()
 	self:LoadHonorNormal();
+end
+
+-- ShowTab
+function mod:ShowTab()
+	mod:HasButton(false);
 end
 
 -- OnCacheLoaded
@@ -113,10 +136,13 @@ function mod:UpdateHonor()
 	labels[4]:SetText(hd.todayHK);
 	labels[5]:SetText(hd.yesterdayHK);
 	labels[6]:SetText(hd.lifetimeHK);
-	labels[7]:SetText(hd.todayHonor);
-	labels[8]:SetText(hd.yesterdayHonor);
-	labels[9]:SetText("---");
-	labels[9]:SetTextColor(1,1,0);
+	labels[7]:SetText("0");
+	labels[8]:SetText("0");
+	labels[9]:SetText("0");
+	labels[10]:SetText(hd.yesterdayHonor);
+	labels[11]:SetText(hd.yesterdayHonor);
+	labels[12]:SetText("---");
+	labels[12]:SetTextColor(1,1,0);
 end
 
 
@@ -136,7 +162,7 @@ mod.rankIcon.texture = mod.rankIcon:CreateTexture(nil,"ARTWORK");
 mod.rankIcon.texture:SetAllPoints();
 
 -- Honor Labels
-for i = 1, 9 do
+for i = 1, 12 do
 	local l = mod.page:CreateFontString(nil,"ARTWORK","GameFontHighlightSmall");
 	l:SetWidth(70);
 
@@ -159,14 +185,22 @@ end
 -- Honor Label Side Headers
 local t = mod.page:CreateFontString(nil,"ARTWORK","GameFontHighlightSmall");
 t:SetPoint("RIGHT",labels[4],"LEFT");
-t:SetWidth(70);
+t:SetWidth(72);
 t:SetJustifyH("LEFT");
 t:SetText("Honor Kills");
 t:SetTextColor(0.5,0.75,1);
 
 t = mod.page:CreateFontString(nil,"ARTWORK","GameFontHighlightSmall");
 t:SetPoint("RIGHT",labels[7],"LEFT");
-t:SetWidth(70);
+t:SetWidth(72);
+t:SetJustifyH("LEFT");
+t:SetText("Dishonor. Kills");
+t:SetTextColor(0.5,0.75,1);
+
+t = mod.page:CreateFontString(nil,"ARTWORK","GameFontHighlightSmall");
+t:SetPoint("RIGHT",labels[10],"LEFT");
+t:SetWidth(72);
 t:SetJustifyH("LEFT");
 t:SetText("Honor Points");
 t:SetTextColor(0.5,0.75,1);
+

@@ -166,6 +166,9 @@ function ex:VARIABLES_LOADED(event)
 	for _, option in ipairs(self.options) do
 		self:SendModuleEvent("OnConfigChanged",option.var,cfg[option.var]);
 	end
+	-- Show/Hide user modules
+	ex:SendModuleEvent("OnPvpTabConfigChange", value);
+	ex:SendModuleEvent("OnGearTabConfigChange", value);
 	-- Remove this event
 	self:UnregisterEvent(event);
 	self[event] = nil;
@@ -488,6 +491,9 @@ function ex:LoadPlayerFromCache(entryName)
 	-- Item Slots
 	for slotName, slotId in next, LibGearExam.SlotIDs do
 		local link = entry.Items[slotName];
+		-- C_Timer.After(0.1, function()
+			-- local link = entry.Items[slotName];	
+		-- end)
 		info.Items[slotName] = link;
 		LibGearExam:ScanItemLink(link,unitStats);
 	end
@@ -620,7 +626,7 @@ function ex:InspectReady(guid)
 		end
 		-- Scan Gear & Post InspectReady
 		self:ScanGear(unit);
-		-- We rebuild the stat list since all items are not fully loaded. This need to be rewriten, can we use ContinueOnItemLoad(function() ?
+		-- We rebuild the stats list since all items are not fully loaded. This need to be rewriten, can we use ContinueOnItemLoad(function() ?
 		C_Timer.After(0.1, function()
 			self:ScanGear(unit);	
 		end)

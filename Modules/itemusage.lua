@@ -5,12 +5,12 @@ local GetItemInfo = GetItemInfo;
 -- Module
 local mod = ex:CreateModule("Items","Item Usage (beta)");
 mod.help = "Shows general item usage.\nBased on the current shown cache";
-mod:CreatePage(true,"Item Usage");
---mod:HasButton(true);
+mod:CreatePage(false,"Item Usage");
+mod:HasButton(false);
 
 -- Variables
-local NUM_BUTTONS = 10;
-local BUTTON_HEIGHT = (283 / NUM_BUTTONS);
+local NUM_BUTTONS = 9;
+local BUTTON_HEIGHT = (240/ NUM_BUTTONS);
 local UpdateShownItems;
 local buttons = {};
 

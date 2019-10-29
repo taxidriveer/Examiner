@@ -1,16 +1,20 @@
 Fan Update
 ---------------------------------------
 * Disabled Talents, Guild and Feats
-* Re-added ranged weapon
+* Support for ranged slot
 * Item level fix
 * Sort average item level fix
-* Basic item scan for hit/crit %
+* Item scan for hit/crit % and weapon skills
 * Fixed enchant name in gearlist module
-* Currently support English, French, Spanish and Deutsch clients (Korean support is experimental)
+* Character stats should be display correctly even if the client didn't cached the item yet (workaround)
+* Currently support English, French, Spanish, Korean and Deutsch clients
+* Ability to Enable/Disable PVP and gearlist module in options
+* Added back Item Usage module for fun statistics :)
 
 To do :
-* Enable/Disable PVP, gearlist and item usage module in options
 * Portuguese and Russian translation
+* Add dishonorable kills when phase 2 is live
+* Fix stats in the cache module, you might have to enter the same entry twice to show all the stats
 
 ![alt text](https://i.imgur.com/voq7odP.jpg)
 
