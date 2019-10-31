@@ -279,12 +279,21 @@ local function Model_OnMouseDown(self,button)
 		self.isRotating = true;
 		if (IsControlKeyDown()) then
 			ex:SetBackgroundTexture(true);
+			PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+		end
+		if (IsShiftKeyDown()) then
+			local z, x, y = self:GetPosition();
+			if not (z == 0 and x == 0 and y == 0) then
+				self:SetPosition(0,0,0);
+				PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
+			end
 		end
 	elseif (button == "RightButton") then
 		self.isPanning = true;
 		if (IsControlKeyDown()) then
 			cfg.showBackground = (not cfg.showBackground);
 			ex:ShowBackground();
+			PlaySound(SOUNDKIT.IG_MAINMENU_OPTION_CHECKBOX_ON);
 		end
 	end
 end
