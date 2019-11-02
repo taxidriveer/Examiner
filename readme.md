@@ -8,12 +8,12 @@ Fan Update
 * Fixed enchant name in gearlist module
 * Character stats should be display correctly even if the client didn't cached the item yet (workaround)
 * Currently support English, French, Spanish, Korean and Deutsch clients
-* Ability to Enable/Disable PVP and gearlist module in options
+* Ability to Show/Hide PVP and gearlist module in options
 * Added back Item Usage module for fun statistics :)
 
 To do :
 * Portuguese and Russian translation
-* Add dishonorable kills when phase 2 is live
+* Add dishonorable kills when phase 2 is live (13th of November)
 * Fix stats in the cache module, you might have to enter the same entry twice to show all the stats
 
 ![alt text](https://i.imgur.com/voq7odP.jpg)
