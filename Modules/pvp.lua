@@ -155,7 +155,7 @@ function mod:UpdateHonor()
 	labels[24]:SetText("|cffffff5D" .. hd.lastweekHonor);
 	labels[25]:SetText("Standing");
 	labels[26]:SetText("|cffffff5D" .. hd.lastweekStanding);
-	labels[27]:SetText("Life Time");
+	labels[27]:SetText("Lifetime");
 	labels[29]:SetText("Honorable Kills");
 	labels[30]:SetText("|cff80ff80" .. hd.lifetimeHK);
 	labels[31]:SetText("Dishonorable Kills");
