@@ -16,7 +16,7 @@ local hd = {};
 local ad = { {}, {}, {} };
 
 -- Config
-mod:AddOption({ var = "pvpbutton", default = false, label = "Display PvP Tab", tip = "If enabled Examiner will display the PvP tab. \nNot working in WoW Classic phase 1." });
+mod:AddOption({ var = "pvpbutton", default = false, label = "Display PvP Tab", tip = "If enabled Examiner will display the PvP tab." });
 
 
 --------------------------------------------------------------------------------------------------------
@@ -108,7 +108,8 @@ function mod:LoadHonorNormal()
 	self:HasData(true);
 	-- Query -- Az: Even if inspecting ourself, use inspect data as GetPVPYesterdayStats() is bugged as of 4.0.1
 	if (not ex.isSelf) or (HasInspectHonorData()) then
-		hd.todayHK, hd.todayHonor, hd.yesterdayHK, hd.yesterdayHonor, hd.lifetimeHK, hd.lifetimeRank = GetInspectHonorData();
+		-- hd.todayHK, hd.todayHonor, hd.yesterdayHK, hd.yesterdayHonor, hd.lifetimeHK, hd.lifetimeRank = GetInspectHonorData();
+		hd.todayHK, hd.todayDK, hd.yesterdayHK, hd.yesterdayHonor, hd.thisweekHK, hd.thisweekHonor, hd.lastweekHK, hd.lastweekHonor, hd.lastweekStanding, hd.lifetimeHK, hd.lifetimeDK, hd.lifetimeRank = GetInspectHonorData();
 	else
 		hd.todayHK, hd.todayHonor = GetPVPSessionStats();
 		hd.yesterdayHK, hd.yesterdayHonor = GetPVPYesterdayStats();
@@ -136,10 +137,10 @@ function mod:UpdateHonor()
 	labels[4]:SetText(hd.todayHK);
 	labels[5]:SetText(hd.yesterdayHK);
 	labels[6]:SetText(hd.lifetimeHK);
-	labels[7]:SetText("0");
-	labels[8]:SetText("0");
-	labels[9]:SetText("0");
-	labels[10]:SetText(hd.yesterdayHonor);
+	labels[7]:SetText(hd.todayDK);
+	labels[8]:SetText("---");
+	labels[9]:SetText(hd.lifetimeDK);
+	labels[10]:SetText("---");
 	labels[11]:SetText(hd.yesterdayHonor);
 	labels[12]:SetText("---");
 	labels[12]:SetTextColor(1,1,0);
