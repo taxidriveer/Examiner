@@ -39,12 +39,8 @@ end
 
 -- OnInspect
 function mod:OnInspect(unit)
-	if (ex.isSelf) then
-		self:LoadHonorNormal();
-	end
-	if (ex.canInspect) then
-		ex:RequestHonorData();
-	end
+	mod.rankBar:Hide();
+	ex:RequestHonorData();
 end
 
 -- OnHonorReady
@@ -123,6 +119,7 @@ function mod:UpdateHonor()
 	mod.rankBar:SetValue(rankProgress)
 	mod.rankText:SetText(hd.rankName .. " (Rank " .. hd.rankNumber .. ")")
 	mod.rankBar.tip = "Progression " .. rankProgress .. "%"
+	mod.rankBar:Show();
 	
 	-- Show Icon with Current Rank
 	if (hd.rankNumber ~= 0) then
@@ -199,7 +196,6 @@ mod.rankText = mod.rankBar:CreateFontString(nil,"ARTWORK")
 mod.rankText:SetFont(GameFontNormal:GetFont(), 13, "OUTLINE")
 mod.rankText:SetPoint("CENTER",0,0)
 mod.rankText:SetTextColor(1,1,0);
-mod.rankBar:Show();
 mod.rankBar.border = CreateFrame("Frame", nil, mod.rankBar)
 mod.rankBar.border:SetPoint("TOPLEFT", mod.rankBar, "TOPLEFT", -2, 2)
 mod.rankBar.border:SetPoint("BOTTOMRIGHT", mod.rankBar, "BOTTOMRIGHT", 2, -2)
