@@ -1,5 +1,5 @@
 ## Interface: 11302
-## Version: Classic Fan Update (1.07)
+## Version: Classic Fan Update (1.08)
 ## Title: Examiner
 ## Author: Aezay (Earthen Ring EU)
 ## Notes: Advanced Inspection Mod of Gear, Talents, Honor, Arena and Achievements.

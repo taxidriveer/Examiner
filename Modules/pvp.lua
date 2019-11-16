@@ -4,7 +4,7 @@ local cfg;
 -- Module
 local mod = ex:CreateModule(PVP,PLAYER_V_PLAYER);
 mod.help = "Honor Details";
-mod:CreatePage(false,PLAYER_V_PLAYER);
+mod:CreatePage(false);
 mod:HasButton(true);
 mod.canCache = true;
 
@@ -83,7 +83,7 @@ function mod:OnClearInspect()
 	self.rankIcon:Hide();
 	-- Clear Honor
 	wipe(hd);
-	for i = 1, 32 do
+	for i = 1, 34 do
 		labels[i]:SetText("");
 	end
 end
@@ -92,43 +92,45 @@ end
 --                                             PvP Stuff                                              --
 --------------------------------------------------------------------------------------------------------
 
--- Format Numbers
-local function FormatNumbers(self,value,max)
-	local color = (value == 0 and "|cffff8080" or "|cffffff5D");
-	if (max == 0) then
-		self:SetFormattedText("%s0|r (%1$s0%%|r)",color);
-	else
-		self:SetFormattedText("%s%d|r (%s%.1f%%|r)",color,value,color,value / max * 100);
-	end
-end
-
 -- Load Honor Normal
 function mod:LoadHonorNormal()
 	self:HasData(true);
+		-- Get Honor values
 		hd.todayHK, hd.todayDK, hd.yesterdayHK, hd.yesterdayHonor, hd.thisweekHK, hd.thisweekHonor, hd.lastweekHK, hd.lastweekHonor, hd.lastweekStanding, hd.lifetimeHK, hd.lifetimeDK, hd.lifetimeRank = GetInspectHonorData();
+		-- Get Highest Rank Name
+		hd.lifetimeHighestRankName = GetPVPRankInfo(hd.lifetimeRank)
+		if not hd.lifetimeHighestRankName then
+			hd.lifetimeHighestRankName = "None"
+		end
+		-- Get Current Rank Name
+		hd.rankName, hd.rankNumber = GetPVPRankInfo(UnitPVPRank("target"));
+		if not hd.rankName then
+			hd.rankName = "None"
+		end	
+		-- Format rankNumber
+		if (hd.rankNumber ~= 0) then
+			hd.rankNumber = hd.rankNumber - 4
+		end
 	-- Update
 	self:UpdateHonor();
 end
 
 -- Honor Update
 function mod:UpdateHonor()
-	-- Show LifeTime Rank
-	if (hd.lifetimeRank ~= 0) then
-		self.rankIcon.texture:SetTexture("Interface\\PvPRankBadges\\PvPRank"..format("%.2d",hd.lifetimeRank - 4));
+	-- Show Rank Bar Progress
+	local rankProgress = GetInspectPVPRankProgress()
+	-- local rankProgress = 55
+	mod.rankBar:SetValue(rankProgress)
+	mod.rankText:SetText(hd.rankName .. " (Rank " .. hd.rankNumber .. ")")
+	mod.rankBar.tip = "Progression " .. rankProgress .. "%"
+	
+	-- Show Icon with Current Rank
+	if (hd.rankNumber ~= 0) then
+		self.rankIcon.texture:SetTexture("Interface\\PvPRankBadges\\PvPRank"..format("%.2d",hd.rankNumber));
 		self.rankIcon.texture:SetTexCoord(0,1,0,1);
-		self.rankIcon.tip = format("%s (Rank %d)",GetPVPRankInfo(hd.lifetimeRank,ex.unit),(hd.lifetimeRank - 4));
+		self.rankIcon.tip = format("%s (Rank %d)",hd.rankName,(hd.rankNumber));
 		self.rankIcon:Show();
 	end
-	
-	-- Show Rank Bar Progress
-	local rankName, rankNumber = GetPVPRankInfo(UnitPVPRank("target"));
-	if not rankName then
-		rankName = "None"
-	end
-	-- local rankProgress = 55
-	local rankProgress = GetInspectPVPRankProgress()
-	mod.rankBar:SetValue(rankProgress)
-	mod.rankText:SetText(rankName .. " (Rank " .. rankNumber .. ")")
 	
 	-- Show Kills/Honor
 	labels[1]:SetText("Today");
@@ -158,6 +160,8 @@ function mod:UpdateHonor()
 	labels[30]:SetText("|cff80ff80" .. hd.lifetimeHK);
 	labels[31]:SetText("Dishonorable Kills");
 	labels[32]:SetText("|cffff6060" .. hd.lifetimeDK);	
+	labels[33]:SetText("Highest Rank");	
+	labels[34]:SetText("|cffffff5D" .. hd.lifetimeHighestRankName);	
 end
 
 
@@ -167,7 +171,7 @@ end
 
 -- Rank Icon
 mod.rankIcon = CreateFrame("Frame",nil,mod.page);
-mod.rankIcon:SetPoint("TOPLEFT",12,-12);
+mod.rankIcon:SetPoint("TOPLEFT",12,-16);
 mod.rankIcon:SetWidth(18);
 mod.rankIcon:SetHeight(18);
 mod.rankIcon:EnableMouse(1);
@@ -180,7 +184,7 @@ mod.rankIcon.texture:SetAllPoints();
 local rankStart = 0
 local rankEnd = 100
 mod.rankBar = CreateFrame("StatusBar",nil,mod.page);
-mod.rankBar:SetPoint("TOPLEFT",12,-40);
+mod.rankBar:SetPoint("TOPLEFT",17,-15);
 mod.rankBar:SetWidth(200);
 mod.rankBar:SetHeight(20);
 mod.rankBar:EnableMouse(1);
@@ -189,31 +193,35 @@ mod.rankBar:SetBackdropColor(0.2, 0.2, 0.5, 0.45)
 mod.rankBar:SetStatusBarTexture([[Interface\PaperDollInfoFrame\UI-Character-Skills-Bar]])
 mod.rankBar:SetStatusBarColor(0.05, 0.15, 0.6)
 mod.rankBar:SetMinMaxValues(rankStart, rankEnd)
+mod.rankBar:SetScript("OnEnter",function(self) GameTooltip:SetOwner(self,"ANCHOR_BOTTOMRIGHT"); GameTooltip:SetText(self.tip) end)
+mod.rankBar:SetScript("OnLeave",ex.HideGTT);
 mod.rankText = mod.rankBar:CreateFontString(nil,"ARTWORK") 
 mod.rankText:SetFont(GameFontNormal:GetFont(), 13, "OUTLINE")
 mod.rankText:SetPoint("CENTER",0,0)
 mod.rankText:SetTextColor(1,1,0);
 mod.rankBar:Show();
-
-
-
--- Rank Bar Text
--- mod.currentRank = mod.page:CreateFontString(nil,"ARTWORK","GameFontHighlightSmall");
--- mod.currentRank:SetPoint("TOPLEFT",12,-10);
--- mod.currentRank:SetTextColor(1,1,0);
--- mod.currentRank:SetFont(GameFontNormal:GetFont(),12);
+mod.rankBar.border = CreateFrame("Frame", nil, mod.rankBar)
+mod.rankBar.border:SetPoint("TOPLEFT", mod.rankBar, "TOPLEFT", -2, 2)
+mod.rankBar.border:SetPoint("BOTTOMRIGHT", mod.rankBar, "BOTTOMRIGHT", 2, -2)
+mod.rankBar.border:SetBackdrop({ 
+	edgeFile = "Interface/Tooltips/UI-Tooltip-Border", 
+	tile = false, edgeSize = 10, 
+	insets = { left = -1, right = -1, top = -1, bottom = -1}
+})
+mod.rankBar.border:SetFrameLevel(mod.rankBar:GetFrameLevel() -1)
+mod.rankBar.border:SetBackdropBorderColor(0.6, 0.6, 0.8, 0.4)
 	
 -- Honor Labels
-for i = 1, 32 do
+for i = 1, 34 do
 	local l = mod.page:CreateFontString(nil,"ARTWORK","GameFontHighlightSmall");
-	l:SetWidth(150);
+	l:SetWidth(110);
 
 	if ((i - 1) % 2 == 0) then
-		l:SetPoint("TOP",-27,-67 - (i - 1) / 3 * 20,"LEFT");
+		l:SetPoint("TOP",-50,-50 - (i - 1) / 3 * 20,"LEFT");
 		l:SetJustifyH("LEFT");
 	else
 		l:SetPoint("LEFT",labels[i - 1],"RIGHT");
-		l:SetWidth(50);
+		l:SetWidth(100);
 		l:SetJustifyH("RIGHT");
 	end
 
