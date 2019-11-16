@@ -14,7 +14,6 @@ Fan Update
 To do :
 * Portuguese and Russian translation
 * Change PVP tab layout
-* Re-enable Talent module
 * Fix stats in the cache module, you might have to enter the same entry twice to show all the stats
 
 ![alt text](https://i.imgur.com/voq7odP.jpg)
