@@ -4,7 +4,7 @@ local cfg;
 -- Module
 local mod = ex:CreateModule(PVP,PLAYER_V_PLAYER);
 mod.help = "Honor Details";
-mod:CreatePage(true,PLAYER_V_PLAYER);
+mod:CreatePage(false,PLAYER_V_PLAYER);
 mod:HasButton(true);
 mod.canCache = true;
 
@@ -83,10 +83,13 @@ function mod:OnClearInspect()
 	self.rankIcon:Hide();
 	-- Clear Honor
 	wipe(hd);
-	for i = 4, 9 do
-		labels[i]:SetText("---");
+	for i = 1, 32 do
+		if (i == 1 or i == 7 or i == 13 or i == 19 or i == 27) then
+			labels[i]:SetTextColor(1,1,0);
+			labels[i]:SetFont(GameFontNormal:GetFont(),12);
+		end
+		-- labels[i]:SetText("---");
 	end
-	labels[9]:SetTextColor(1,1,0);
 end
 
 --------------------------------------------------------------------------------------------------------
@@ -95,7 +98,7 @@ end
 
 -- Format Numbers
 local function FormatNumbers(self,value,max)
-	local color = (value == 0 and "|cffff8080" or "|cffffff80");
+	local color = (value == 0 and "|cffff8080" or "|cffffff5D");
 	if (max == 0) then
 		self:SetFormattedText("%s0|r (%1$s0%%|r)",color);
 	else
@@ -106,22 +109,13 @@ end
 -- Load Honor Normal
 function mod:LoadHonorNormal()
 	self:HasData(true);
-	-- Query -- Az: Even if inspecting ourself, use inspect data as GetPVPYesterdayStats() is bugged as of 4.0.1
-	if (not ex.isSelf) or (HasInspectHonorData()) then
-		-- hd.todayHK, hd.todayHonor, hd.yesterdayHK, hd.yesterdayHonor, hd.lifetimeHK, hd.lifetimeRank = GetInspectHonorData();
 		hd.todayHK, hd.todayDK, hd.yesterdayHK, hd.yesterdayHonor, hd.thisweekHK, hd.thisweekHonor, hd.lastweekHK, hd.lastweekHonor, hd.lastweekStanding, hd.lifetimeHK, hd.lifetimeDK, hd.lifetimeRank = GetInspectHonorData();
-	else
-		hd.todayHK, hd.todayHonor = GetPVPSessionStats();
-		hd.yesterdayHK, hd.yesterdayHonor = GetPVPYesterdayStats();
-		hd.lifetimeHK, hd.lifetimeRank = GetPVPLifetimeStats();
-	end
+		rankName, rankNumber = GetPVPRankInfo(UnitPVPRank("target"));
+		if ( not rankName ) then
+		rankName = NONE;
+		end
 	-- Update
 	self:UpdateHonor();
-	-- Show Honor Points for Player only	-- Az: disabled for cata, GetHonorCurrency() func removed
---	if (ex.isSelf) then
---		labels[9]:SetText(GetHonorCurrency());
---		labels[9]:SetTextColor(0,1,0);
---	end
 end
 
 -- Honor Update
@@ -134,16 +128,33 @@ function mod:UpdateHonor()
 		self.rankIcon:Show();
 	end
 	-- Show Kills/Honor
-	labels[4]:SetText(hd.todayHK);
-	labels[5]:SetText(hd.yesterdayHK);
-	labels[6]:SetText(hd.lifetimeHK);
-	labels[7]:SetText(hd.todayDK);
-	labels[8]:SetText("---");
-	labels[9]:SetText(hd.lifetimeDK);
-	labels[10]:SetText("---");
-	labels[11]:SetText(hd.yesterdayHonor);
-	labels[12]:SetText("---");
-	labels[12]:SetTextColor(1,1,0);
+	labels[1]:SetText("Today");
+	labels[3]:SetText("Honorable Kills");
+	labels[4]:SetText("|cff80ff80" .. hd.todayHK);
+	labels[5]:SetText("Dishonorable Kills");
+	labels[6]:SetText("|cffff6060" .. hd.todayDK);
+	labels[7]:SetText("Yesterday");
+	labels[9]:SetText("Honorable Kills");
+	labels[10]:SetText("|cff80ff80" .. hd.yesterdayHK);
+	labels[11]:SetText("Honor");
+	labels[12]:SetText("|cffffff5D" .. hd.yesterdayHonor);
+	labels[13]:SetText("This Week");
+	labels[15]:SetText("Honorable Kills");
+	labels[16]:SetText("|cff80ff80" .. hd.thisweekHK);
+	labels[17]:SetText("Honor");
+	labels[18]:SetText("|cffffff5D" .. hd.thisweekHonor);
+	labels[19]:SetText("Last Week");
+	labels[21]:SetText("Honorable Kills");
+	labels[22]:SetText("|cff80ff80" .. hd.lastweekHK);
+	labels[23]:SetText("Honor");
+	labels[24]:SetText("|cffffff5D" .. hd.lastweekHonor);
+	labels[25]:SetText("Standing");
+	labels[26]:SetText("|cffffff5D" .. hd.lastweekStanding);
+	labels[27]:SetText("Life Time");
+	labels[29]:SetText("Honorable Kills");
+	labels[30]:SetText("|cff80ff80" .. hd.lifetimeHK);
+	labels[31]:SetText("Dishonorable Kills");
+	labels[32]:SetText("|cffff6060" .. hd.lifetimeDK);	
 end
 
 
@@ -162,46 +173,41 @@ mod.rankIcon:SetScript("OnLeave",ex.HideGTT);
 mod.rankIcon.texture = mod.rankIcon:CreateTexture(nil,"ARTWORK");
 mod.rankIcon.texture:SetAllPoints();
 
+-- Rank Bar
+-- mod.rankBar = CreateFrame("Frame",nil,mod.page);
+-- mod.rankBar:SetPoint("TOPLEFT",12,-12);
+-- mod.rankBar:SetWidth(500);
+-- mod.rankBar:SetHeight(50);
+-- mod.rankBar:EnableMouse(1);
+-- mod.rankBar:SetTexture("Interface\\Glues\\CharacterCreate\\UI-CharacterCreate-Factions.blp");
+-- mod.rankBar:Show();
+-- mod.rankBar:SetText("yo");
+
+
 -- Honor Labels
-for i = 1, 12 do
+for i = 1, 32 do
 	local l = mod.page:CreateFontString(nil,"ARTWORK","GameFontHighlightSmall");
-	l:SetWidth(70);
+	l:SetWidth(150);
+	-- l:SetText("---");
+	-- l:SetPoint("TOP",-28,-36 - (i - 1) / 2 * 12);
+	-- l:SetPoint("LEFT",labels[i - 1],"RIGHT");
+	-- labels[i] = l;
 
-	if (i <= 3) then
-		l:SetText(i == 1 and "Today" or i == 2 and "Yesterday" or "Lifetime");
-		l:SetTextColor(0.5,0.75,1);
-	else
-		l:SetTextColor(1,1,0);
-	end
+	-- if (i <= 3) then
+		-- l:SetText(i == 1 and "Honor Kills" or i == 2 and "Honor Points" or "Dis. Kills");
+		-- l:SetTextColor(0.5,0.75,1);
+	-- else
+		-- l:SetTextColor(1,1,0);
+	-- end
 
-	if ((i - 1) % 3 == 0) then
-		l:SetPoint("TOP",-28,-36 - (i - 1) / 3 * 12);
+	if ((i - 1) % 2 == 0) then
+		l:SetPoint("TOP",-27,-67 - (i - 1) / 3 * 20,"LEFT");
+		l:SetJustifyH("LEFT");
 	else
 		l:SetPoint("LEFT",labels[i - 1],"RIGHT");
+		l:SetWidth(50);
+		l:SetJustifyH("RIGHT");
 	end
 
 	labels[i] = l;
 end
-
--- Honor Label Side Headers
-local t = mod.page:CreateFontString(nil,"ARTWORK","GameFontHighlightSmall");
-t:SetPoint("RIGHT",labels[4],"LEFT");
-t:SetWidth(72);
-t:SetJustifyH("LEFT");
-t:SetText("Honor Kills");
-t:SetTextColor(0.5,0.75,1);
-
-t = mod.page:CreateFontString(nil,"ARTWORK","GameFontHighlightSmall");
-t:SetPoint("RIGHT",labels[7],"LEFT");
-t:SetWidth(72);
-t:SetJustifyH("LEFT");
-t:SetText("Dishonor. Kills");
-t:SetTextColor(0.5,0.75,1);
-
-t = mod.page:CreateFontString(nil,"ARTWORK","GameFontHighlightSmall");
-t:SetPoint("RIGHT",labels[10],"LEFT");
-t:SetWidth(72);
-t:SetJustifyH("LEFT");
-t:SetText("Honor Points");
-t:SetTextColor(0.5,0.75,1);
-
