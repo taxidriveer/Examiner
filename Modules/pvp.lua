@@ -133,29 +133,29 @@ function mod:UpdateHonor()
 	end
 	
 	-- Show Kills/Honor
-	labels[1]:SetText("Today");
+	labels[1]:SetText("Today:");
 	labels[3]:SetText("Honorable Kills");
 	labels[4]:SetText("|cff80ff80" .. hd.todayHK);
 	labels[5]:SetText("Dishonorable Kills");
 	labels[6]:SetText("|cffff6060" .. hd.todayDK);
-	labels[7]:SetText("Yesterday");
+	labels[7]:SetText("Yesterday:");
 	labels[9]:SetText("Honorable Kills");
 	labels[10]:SetText("|cff80ff80" .. hd.yesterdayHK);
 	labels[11]:SetText("Honor");
 	labels[12]:SetText("|cffffff5D" .. hd.yesterdayHonor);
-	labels[13]:SetText("This Week");
+	labels[13]:SetText("This Week:");
 	labels[15]:SetText("Honorable Kills");
 	labels[16]:SetText("|cff80ff80" .. hd.thisweekHK);
 	labels[17]:SetText("Honor");
 	labels[18]:SetText("|cffffff5D" .. hd.thisweekHonor);
-	labels[19]:SetText("Last Week");
+	labels[19]:SetText("Last Week:");
 	labels[21]:SetText("Honorable Kills");
 	labels[22]:SetText("|cff80ff80" .. hd.lastweekHK);
 	labels[23]:SetText("Honor");
 	labels[24]:SetText("|cffffff5D" .. hd.lastweekHonor);
 	labels[25]:SetText("Standing");
 	labels[26]:SetText("|cffffff5D" .. hd.lastweekStanding);
-	labels[27]:SetText("Lifetime");
+	labels[27]:SetText("Lifetime:");
 	labels[29]:SetText("Honorable Kills");
 	labels[30]:SetText("|cff80ff80" .. hd.lifetimeHK);
 	labels[31]:SetText("Dishonorable Kills");
@@ -227,7 +227,7 @@ for i = 1, 34 do
 
 	labels[i] = l;
 	if (i == 1 or i == 7 or i == 13 or i == 19 or i == 27) then
-		labels[i]:SetTextColor(1,1,0);
-		labels[i]:SetFont(GameFontNormal:GetFont(),12);	
+		labels[i]:SetTextColor(0.5,0.75,1);
+		labels[i]:SetFont(GameFontNormal:GetFont(),11);	
 	end
 end
