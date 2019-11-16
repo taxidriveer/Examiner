@@ -15,6 +15,7 @@ Fan Update
 To do :
 * Portuguese and Russian translation
 * Fix stats in the cache module, you might have to enter the same entry twice to show all the stats
+* Update the PVP module to support translation
 
 ![alt text](https://i.imgur.com/voq7odP.jpg)
 
