@@ -84,11 +84,7 @@ function mod:OnClearInspect()
 	-- Clear Honor
 	wipe(hd);
 	for i = 1, 32 do
-		if (i == 1 or i == 7 or i == 13 or i == 19 or i == 27) then
-			labels[i]:SetTextColor(1,1,0);
-			labels[i]:SetFont(GameFontNormal:GetFont(),12);
-		end
-		-- labels[i]:SetText("---");
+		labels[i]:SetText("");
 	end
 end
 
@@ -110,23 +106,30 @@ end
 function mod:LoadHonorNormal()
 	self:HasData(true);
 		hd.todayHK, hd.todayDK, hd.yesterdayHK, hd.yesterdayHonor, hd.thisweekHK, hd.thisweekHonor, hd.lastweekHK, hd.lastweekHonor, hd.lastweekStanding, hd.lifetimeHK, hd.lifetimeDK, hd.lifetimeRank = GetInspectHonorData();
-		rankName, rankNumber = GetPVPRankInfo(UnitPVPRank("target"));
-		if ( not rankName ) then
-		rankName = NONE;
-		end
 	-- Update
 	self:UpdateHonor();
 end
 
 -- Honor Update
 function mod:UpdateHonor()
-	-- Show Rank
+	-- Show LifeTime Rank
 	if (hd.lifetimeRank ~= 0) then
 		self.rankIcon.texture:SetTexture("Interface\\PvPRankBadges\\PvPRank"..format("%.2d",hd.lifetimeRank - 4));
 		self.rankIcon.texture:SetTexCoord(0,1,0,1);
 		self.rankIcon.tip = format("%s (Rank %d)",GetPVPRankInfo(hd.lifetimeRank,ex.unit),(hd.lifetimeRank - 4));
 		self.rankIcon:Show();
 	end
+	
+	-- Show Rank Bar Progress
+	local rankName, rankNumber = GetPVPRankInfo(UnitPVPRank("target"));
+	if not rankName then
+		rankName = "None"
+	end
+	-- local rankProgress = 55
+	local rankProgress = GetInspectPVPRankProgress()
+	mod.rankBar:SetValue(rankProgress)
+	mod.rankText:SetText(rankName .. " (Rank " .. rankNumber .. ")")
+	
 	-- Show Kills/Honor
 	labels[1]:SetText("Today");
 	labels[3]:SetText("Honorable Kills");
@@ -174,31 +177,36 @@ mod.rankIcon.texture = mod.rankIcon:CreateTexture(nil,"ARTWORK");
 mod.rankIcon.texture:SetAllPoints();
 
 -- Rank Bar
--- mod.rankBar = CreateFrame("Frame",nil,mod.page);
--- mod.rankBar:SetPoint("TOPLEFT",12,-12);
--- mod.rankBar:SetWidth(500);
--- mod.rankBar:SetHeight(50);
--- mod.rankBar:EnableMouse(1);
--- mod.rankBar:SetTexture("Interface\\Glues\\CharacterCreate\\UI-CharacterCreate-Factions.blp");
--- mod.rankBar:Show();
--- mod.rankBar:SetText("yo");
+local rankStart = 0
+local rankEnd = 100
+mod.rankBar = CreateFrame("StatusBar",nil,mod.page);
+mod.rankBar:SetPoint("TOPLEFT",12,-40);
+mod.rankBar:SetWidth(200);
+mod.rankBar:SetHeight(20);
+mod.rankBar:EnableMouse(1);
+mod.rankBar:SetBackdrop({bgFile = [[Interface\PaperDollInfoFrame\UI-Character-Skills-Bar]]})
+mod.rankBar:SetBackdropColor(0.2, 0.2, 0.5, 0.45)
+mod.rankBar:SetStatusBarTexture([[Interface\PaperDollInfoFrame\UI-Character-Skills-Bar]])
+mod.rankBar:SetStatusBarColor(0.05, 0.15, 0.6)
+mod.rankBar:SetMinMaxValues(rankStart, rankEnd)
+mod.rankText = mod.rankBar:CreateFontString(nil,"ARTWORK") 
+mod.rankText:SetFont(GameFontNormal:GetFont(), 13, "OUTLINE")
+mod.rankText:SetPoint("CENTER",0,0)
+mod.rankText:SetTextColor(1,1,0);
+mod.rankBar:Show();
 
 
+
+-- Rank Bar Text
+-- mod.currentRank = mod.page:CreateFontString(nil,"ARTWORK","GameFontHighlightSmall");
+-- mod.currentRank:SetPoint("TOPLEFT",12,-10);
+-- mod.currentRank:SetTextColor(1,1,0);
+-- mod.currentRank:SetFont(GameFontNormal:GetFont(),12);
+	
 -- Honor Labels
 for i = 1, 32 do
 	local l = mod.page:CreateFontString(nil,"ARTWORK","GameFontHighlightSmall");
 	l:SetWidth(150);
-	-- l:SetText("---");
-	-- l:SetPoint("TOP",-28,-36 - (i - 1) / 2 * 12);
-	-- l:SetPoint("LEFT",labels[i - 1],"RIGHT");
-	-- labels[i] = l;
-
-	-- if (i <= 3) then
-		-- l:SetText(i == 1 and "Honor Kills" or i == 2 and "Honor Points" or "Dis. Kills");
-		-- l:SetTextColor(0.5,0.75,1);
-	-- else
-		-- l:SetTextColor(1,1,0);
-	-- end
 
 	if ((i - 1) % 2 == 0) then
 		l:SetPoint("TOP",-27,-67 - (i - 1) / 3 * 20,"LEFT");
@@ -210,4 +218,8 @@ for i = 1, 32 do
 	end
 
 	labels[i] = l;
+	if (i == 1 or i == 7 or i == 13 or i == 19 or i == 27) then
+		labels[i]:SetTextColor(1,1,0);
+		labels[i]:SetFont(GameFontNormal:GetFont(),12);	
+	end
 end
