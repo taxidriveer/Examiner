@@ -15,7 +15,6 @@ Fan Update
 To do :
 * Portuguese and Russian translation
 * Fix stats in the cache module, you might have to enter the same entry twice to show all the stats
-* Update the PVP module to support translation
 
 ![alt text](https://i.imgur.com/voq7odP.jpg)
 
@@ -45,12 +44,6 @@ this menu will have an entry called "Mark for Compare". You can also use the sho
 When marked for compare, the Stats page will no longer show the actual stats of your inspected person, but will instead show the difference in stats
 compared to the person you marked for compare.
 
-Achievement Browser
--------------------
-Examiner comes with powerful achievement browser, which has a lot of features, such as filtering out certain achievements you do not care about, or only show achievements for a specific boss encounter.
-It is also possible to sort achievements in several ways. For example, you may want to sort achievements by the name, their rewards, or the date they were completed.
-Instead of the default achievement browser, try using the one in Examiner, even when looking at your own achievements, just inspect yourself.
-
 Cache Filtering
 ---------------
 If your number of cached entries is getting quite high, you may want a way to filter out specific players.
@@ -69,6 +62,7 @@ Right Click + Move:		Moves the Model
 Mousewheel:				Zoom
 Ctrl + Left Click:		Change Background
 Ctrl + Right Click:		Toggle Background
+Shift + Left Click:		Reset Model Position 
 
 Slash Commands
 --------------
@@ -128,11 +122,9 @@ Special Thanks
 Lacking Features, Ideas & Problems
 ----------------------------------
 - Always listen for INSPECT_READY, and invalidate the current unit if an event is recieved that is not "our" unit.
-- PvP: The arena calculator needs to be updated.
 - Cache: Modify the function that builds a list of players from the filter, to take a table parameter, so external code can request a filterd list, without modifying the cache list.
 - Postpone the OnCache() event, currently, the OnAchievementsReady() happens after caching is done, so it doesn't actually get cached!
 - Module's OnInitialize() shouldn't run until first time Examiner is opened. This would allow for much more optimization.
-- Achievement tooltips should adhere to the smarttooltip option.
 - mod:HasData() should be posting an event. It messes with the modlist module.
 - Locked frames seem to have moved a bit up as of 4.0, change this in Examiner to so it will align with other frames.
 - Bring back the ability, as a new module, to send an inspected player to another person with Examiner.
