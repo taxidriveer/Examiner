@@ -96,12 +96,12 @@ function mod:LoadHonorNormal()
 		-- Get Highest Rank Name
 		hd.lifetimeHighestRankName = GetPVPRankInfo(hd.lifetimeRank)
 		if not hd.lifetimeHighestRankName then
-			hd.lifetimeHighestRankName = "None"
+			hd.lifetimeHighestRankName = COMBAT_TEXT_NONE
 		end
 		-- Get Current Rank Name
 		hd.rankName, hd.rankNumber = GetPVPRankInfo(UnitPVPRank("target"));
 		if not hd.rankName then
-			hd.rankName = "None"
+			hd.rankName = COMBAT_TEXT_NONE
 		end	
 		-- Format rankNumber
 		if (hd.rankNumber ~= 0) then
@@ -117,8 +117,8 @@ function mod:UpdateHonor()
 	local rankProgress = GetInspectPVPRankProgress()
 	-- local rankProgress = 55
 	mod.rankBar:SetValue(rankProgress)
-	mod.rankText:SetText(hd.rankName .. " (Rank " .. hd.rankNumber .. ")")
-	mod.rankBar.tip = "Progression " .. rankProgress .. "%"
+	mod.rankText:SetText(hd.rankName .. " (" .. RANK .. " " .. hd.rankNumber .. ")")
+	mod.rankBar.tip = ACHIEVEMENT_CATEGORY_PROGRESS .. ": " .. rankProgress .. "%"
 	mod.rankBar:Show();
 	
 	-- Show Icon with Current Rank
@@ -130,34 +130,34 @@ function mod:UpdateHonor()
 	end
 	
 	-- Show Kills/Honor
-	labels[1]:SetText("Today:");
-	labels[3]:SetText("Honorable Kills");
+	labels[1]:SetText(HONOR_TODAY .. ":");
+	labels[3]:SetText(HONORABLE_KILLS);
 	labels[4]:SetText("|cff80ff80" .. hd.todayHK);
-	labels[5]:SetText("Dishonorable Kills");
+	labels[5]:SetText(DISHONORABLE_KILLS);
 	labels[6]:SetText("|cffff6060" .. hd.todayDK);
-	labels[7]:SetText("Yesterday:");
-	labels[9]:SetText("Honorable Kills");
+	labels[7]:SetText(HONOR_YESTERDAY .. ":");
+	labels[9]:SetText(HONORABLE_KILLS);
 	labels[10]:SetText("|cff80ff80" .. hd.yesterdayHK);
-	labels[11]:SetText("Honor");
+	labels[11]:SetText(HONOR);
 	labels[12]:SetText("|cffffff5D" .. hd.yesterdayHonor);
-	labels[13]:SetText("This Week:");
-	labels[15]:SetText("Honorable Kills");
+	labels[13]:SetText(ARENA_THIS_WEEK .. ":"); -- is there another global ?
+	labels[15]:SetText(HONORABLE_KILLS);
 	labels[16]:SetText("|cff80ff80" .. hd.thisweekHK);
-	labels[17]:SetText("Honor");
+	labels[17]:SetText(HONOR);
 	labels[18]:SetText("|cffffff5D" .. hd.thisweekHonor);
-	labels[19]:SetText("Last Week:");
-	labels[21]:SetText("Honorable Kills");
+	labels[19]:SetText(HONOR_LASTWEEK .. ":");
+	labels[21]:SetText(HONORABLE_KILLS);
 	labels[22]:SetText("|cff80ff80" .. hd.lastweekHK);
-	labels[23]:SetText("Honor");
+	labels[23]:SetText(HONOR);
 	labels[24]:SetText("|cffffff5D" .. hd.lastweekHonor);
-	labels[25]:SetText("Standing");
+	labels[25]:SetText(HONOR_STANDING);
 	labels[26]:SetText("|cffffff5D" .. hd.lastweekStanding);
-	labels[27]:SetText("Lifetime:");
-	labels[29]:SetText("Honorable Kills");
+	labels[27]:SetText(HONOR_LIFETIME .. ":");
+	labels[29]:SetText(HONORABLE_KILLS);
 	labels[30]:SetText("|cff80ff80" .. hd.lifetimeHK);
-	labels[31]:SetText("Dishonorable Kills");
+	labels[31]:SetText(DISHONORABLE_KILLS);
 	labels[32]:SetText("|cffff6060" .. hd.lifetimeDK);	
-	labels[33]:SetText("Highest Rank");	
+	labels[33]:SetText(HONOR_HIGHEST_RANK);	
 	labels[34]:SetText("|cffffff5D" .. hd.lifetimeHighestRankName);	
 end
 
@@ -210,20 +210,23 @@ mod.rankBar.border:SetBackdropBorderColor(0.6, 0.6, 0.8, 0.4)
 -- Honor Labels
 for i = 1, 34 do
 	local l = mod.page:CreateFontString(nil,"ARTWORK","GameFontHighlightSmall");
-	l:SetWidth(110);
+	l:SetWidth(125);
 
 	if ((i - 1) % 2 == 0) then
-		l:SetPoint("TOP",-50,-50 - (i - 1) / 3 * 20,"LEFT");
+		l:SetPoint("TOP",-45,-50 - (i - 1) / 3 * 20,"LEFT");
 		l:SetJustifyH("LEFT");
 	else
 		l:SetPoint("LEFT",labels[i - 1],"RIGHT");
-		l:SetWidth(100);
+		l:SetWidth(90);
 		l:SetJustifyH("RIGHT");
 	end
 
 	labels[i] = l;
+	
 	if (i == 1 or i == 7 or i == 13 or i == 19 or i == 27) then
 		labels[i]:SetTextColor(0.5,0.75,1);
 		labels[i]:SetFont(GameFontNormal:GetFont(),11);	
+	else
+		labels[i]:SetFont(GameFontNormal:GetFont(),10);
 	end
 end
