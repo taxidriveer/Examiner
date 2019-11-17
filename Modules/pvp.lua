@@ -188,7 +188,7 @@ mod.rankBar:EnableMouse(1);
 mod.rankBar:SetBackdrop({bgFile = [[Interface\PaperDollInfoFrame\UI-Character-Skills-Bar]]})
 mod.rankBar:SetBackdropColor(0.2, 0.2, 0.5, 0.45)
 mod.rankBar:SetStatusBarTexture([[Interface\PaperDollInfoFrame\UI-Character-Skills-Bar]])
-mod.rankBar:SetStatusBarColor(0.05, 0.15, 0.6)
+mod.rankBar:SetStatusBarColor(0.4, 0.4, 0.7)
 mod.rankBar:SetMinMaxValues(rankStart, rankEnd)
 mod.rankBar:SetScript("OnEnter",function(self) GameTooltip:SetOwner(self,"ANCHOR_BOTTOMRIGHT"); GameTooltip:SetText(self.tip) end)
 mod.rankBar:SetScript("OnLeave",ex.HideGTT);
