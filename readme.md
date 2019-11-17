@@ -8,7 +8,7 @@ Fan Update
 * Item scan for hit/crit % and weapon skills
 * Fixed enchant name in gearlist module
 * Character stats should be display correctly even if the client didn't cached the item yet (workaround)
-* Currently support English, French, Spanish, Korean and Deutsch clients
+* Currently support English, French, Spanish, Korean, Chinese and Deutsch clients
 * Ability to Show/Hide PVP and gearlist module in options
 * Added back Item Usage module for fun statistics :)
 
