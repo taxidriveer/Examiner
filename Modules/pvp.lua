@@ -140,7 +140,7 @@ function mod:UpdateHonor()
 	labels[10]:SetText("|cff80ff80" .. hd.yesterdayHK);
 	labels[11]:SetText(HONOR);
 	labels[12]:SetText("|cffffff5D" .. hd.yesterdayHonor);
-	labels[13]:SetText(ARENA_THIS_WEEK .. ":"); -- is there another global ?
+	labels[13]:SetText(ARENA_THIS_WEEK .. ":");
 	labels[15]:SetText(HONORABLE_KILLS);
 	labels[16]:SetText("|cff80ff80" .. hd.thisweekHK);
 	labels[17]:SetText(HONOR);
@@ -211,22 +211,28 @@ mod.rankBar.border:SetBackdropBorderColor(0.6, 0.6, 0.8, 0.4)
 for i = 1, 34 do
 	local l = mod.page:CreateFontString(nil,"ARTWORK","GameFontHighlightSmall");
 	l:SetWidth(125);
-
+	labels[i] = l;
+	-- Configure table left and right column
 	if ((i - 1) % 2 == 0) then
-		l:SetPoint("TOP",-45,-50 - (i - 1) / 3 * 20,"LEFT");
+		if (i == 1) then
+			l:SetPoint("BOTTOMLEFT", mod.rankBar, "BOTTOMLEFT", -6, -25);
+			labels[i]:SetTextColor(0.5,0.75,1);
+			labels[i]:SetFont(GameFontNormal:GetFont(),11);	
+		else 
+			-- Titles and data
+			if (i == 7 or i == 13 or i == 19 or i == 27) then
+				l:SetPoint("BOTTOMLEFT", labels[i - 2], "BOTTOMLEFT", 0, -19);
+				labels[i]:SetTextColor(0.5,0.75,1);
+				labels[i]:SetFont(GameFontNormal:GetFont(),11);	
+			else
+				l:SetPoint("BOTTOMLEFT", labels[i - 2], "BOTTOMLEFT", 0, -11.5);
+				labels[i]:SetFont(GameFontNormal:GetFont(),10);
+			end
+		end
 		l:SetJustifyH("LEFT");
 	else
-		l:SetPoint("LEFT",labels[i - 1],"RIGHT");
+		l:SetPoint("LEFT", labels[i - 1], "RIGHT");
 		l:SetWidth(90);
 		l:SetJustifyH("RIGHT");
-	end
-
-	labels[i] = l;
-	
-	if (i == 1 or i == 7 or i == 13 or i == 19 or i == 27) then
-		labels[i]:SetTextColor(0.5,0.75,1);
-		labels[i]:SetFont(GameFontNormal:GetFont(),11);	
-	else
-		labels[i]:SetFont(GameFontNormal:GetFont(),10);
 	end
 end
