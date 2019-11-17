@@ -117,7 +117,7 @@ function mod:UpdateHonor()
 	local rankProgress = GetInspectPVPRankProgress()
 	-- local rankProgress = 55
 	mod.rankBar:SetValue(rankProgress)
-	mod.rankText:SetText(hd.rankName .. " (" .. RANK .. " " .. hd.rankNumber .. ")")
+	mod.rankBar.Text:SetText(hd.rankName .. " (" .. RANK .. " " .. hd.rankNumber .. ")")
 	mod.rankBar.tip = ACHIEVEMENT_CATEGORY_PROGRESS .. ": " .. rankProgress .. "%"
 	mod.rankBar:Show();
 	
@@ -192,20 +192,20 @@ mod.rankBar:SetStatusBarColor(0.05, 0.15, 0.6)
 mod.rankBar:SetMinMaxValues(rankStart, rankEnd)
 mod.rankBar:SetScript("OnEnter",function(self) GameTooltip:SetOwner(self,"ANCHOR_BOTTOMRIGHT"); GameTooltip:SetText(self.tip) end)
 mod.rankBar:SetScript("OnLeave",ex.HideGTT);
-mod.rankText = mod.rankBar:CreateFontString(nil,"ARTWORK") 
-mod.rankText:SetFont(GameFontNormal:GetFont(), 13, "OUTLINE")
-mod.rankText:SetPoint("CENTER",0,0)
-mod.rankText:SetTextColor(1,1,0);
-mod.rankBar.border = CreateFrame("Frame", nil, mod.rankBar)
-mod.rankBar.border:SetPoint("TOPLEFT", mod.rankBar, "TOPLEFT", -2, 2)
-mod.rankBar.border:SetPoint("BOTTOMRIGHT", mod.rankBar, "BOTTOMRIGHT", 2, -2)
-mod.rankBar.border:SetBackdrop({ 
+mod.rankBar.Text = mod.rankBar:CreateFontString(nil,"ARTWORK") 
+mod.rankBar.Text:SetFont(GameFontNormal:GetFont(), 13, "OUTLINE")
+mod.rankBar.Text:SetPoint("CENTER",0,0)
+mod.rankBar.Text:SetTextColor(1,1,0);
+mod.rankBar.Border = CreateFrame("Frame", nil, mod.rankBar)
+mod.rankBar.Border:SetPoint("TOPLEFT", mod.rankBar, "TOPLEFT", -2, 2)
+mod.rankBar.Border:SetPoint("BOTTOMRIGHT", mod.rankBar, "BOTTOMRIGHT", 2, -2)
+mod.rankBar.Border:SetBackdrop({ 
 	edgeFile = "Interface/Tooltips/UI-Tooltip-Border", 
 	tile = false, edgeSize = 10, 
 	insets = { left = -1, right = -1, top = -1, bottom = -1}
 })
-mod.rankBar.border:SetFrameLevel(mod.rankBar:GetFrameLevel() -1)
-mod.rankBar.border:SetBackdropBorderColor(0.6, 0.6, 0.8, 0.4)
+mod.rankBar.Border:SetFrameLevel(mod.rankBar:GetFrameLevel() -1)
+mod.rankBar.Border:SetBackdropBorderColor(0.6, 0.6, 0.8, 0.4)
 	
 -- Honor Labels
 for i = 1, 34 do
