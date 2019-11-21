@@ -103,10 +103,6 @@ function mod:LoadHonorNormal()
 		if not hd.rankName then
 			hd.rankName = COMBAT_TEXT_NONE
 		end	
-		-- Format rankNumber
-		if (hd.rankNumber ~= 0) then
-			hd.rankNumber = hd.rankNumber - 4
-		end
 	-- Update
 	self:UpdateHonor();
 end
@@ -114,7 +110,7 @@ end
 -- Honor Update
 function mod:UpdateHonor()
 	-- Show Rank Bar Progress
-	local rankProgress = GetInspectPVPRankProgress()
+	local rankProgress = GetInspectPVPRankProgress() * 100
 	-- local rankProgress = 55
 	mod.rankBar:SetValue(rankProgress)
 	mod.rankBar.Text:SetText(hd.rankName .. " (" .. RANK .. " " .. hd.rankNumber .. ")")
