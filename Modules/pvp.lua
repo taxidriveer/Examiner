@@ -84,6 +84,11 @@ function mod:OnClearInspect()
 	end
 end
 
+-- Round numbers
+function round(number, decimals)
+    return (("%%.%df"):format(decimals)):format(number)
+end
+
 --------------------------------------------------------------------------------------------------------
 --                                             PvP Stuff                                              --
 --------------------------------------------------------------------------------------------------------
@@ -110,7 +115,7 @@ end
 -- Honor Update
 function mod:UpdateHonor()
 	-- Show Rank Bar Progress
-	local rankProgress = GetInspectPVPRankProgress() * 100
+	local rankProgress = round((GetInspectPVPRankProgress() * 100),2)
 	-- local rankProgress = 55
 	mod.rankBar:SetValue(rankProgress)
 	mod.rankBar.Text:SetText(hd.rankName .. " (" .. RANK .. " " .. hd.rankNumber .. ")")
@@ -168,8 +173,9 @@ mod.rankIcon:SetPoint("TOPLEFT",12,-16);
 mod.rankIcon:SetWidth(18);
 mod.rankIcon:SetHeight(18);
 mod.rankIcon:EnableMouse(1);
-mod.rankIcon:SetScript("OnEnter",function(self) GameTooltip:SetOwner(self,"ANCHOR_BOTTOMRIGHT"); GameTooltip:SetText(self.tip) end)
-mod.rankIcon:SetScript("OnLeave",ex.HideGTT);
+mod.rankIcon:SetFrameStrata("HIGH");
+-- mod.rankIcon:SetScript("OnEnter",function(self) GameTooltip:SetOwner(self,"ANCHOR_BOTTOMRIGHT"); GameTooltip:SetText(self.tip) end)
+-- mod.rankIcon:SetScript("OnLeave",ex.HideGTT);
 mod.rankIcon.texture = mod.rankIcon:CreateTexture(nil,"ARTWORK");
 mod.rankIcon.texture:SetAllPoints();
 
