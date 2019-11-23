@@ -1,3 +1,6 @@
+Examiner Changes | 2019 Nov 23
+- Added zhCN localization, thanks to Qcat0214
+
 Examiner Changes | 2019 Nov 21
 - PVP module fixes (Progress bar and rank)
 
