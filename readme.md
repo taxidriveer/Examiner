@@ -100,7 +100,9 @@ Special Thanks
 --------------
 - Chester, the original author of SuperInspect, who gave me the idea to make this mod.
 - Haldamir of Gorgonnash, for the German translation.
-- omosiro, who made the Korean translation.
+- Qcat0214, who made the Chinese translation.
+- omosiro, who made the Korean translation for the 1.13.2 patch.
+- chkid, for Korean translation update for the 1.13.2 patch.
 - g3gg0, changes to the German translation & author to one of the SuperInspect versions.
 - Pettigrow of Sinstralis, for the translation to French.
 - Siphony of EU-Onyxia, updated German translation.
@@ -110,7 +112,6 @@ Special Thanks
 - Hoofik of AshenVale for the 3.0 patch update of the Russian translation.
 - Maxfunkey (aka Carambha of EU-Lordearon), patch 3.0.2 update of the German and Frensh translation.
 - Thorakon (aka Pulgrim of EU-Alexstrasza), for the patch 3.0.3 update of the German translation.
-- chkid, for Korean translation update for the 3.1 patch.
 - ericyen, for the Taiwan translation for the 3.1 release.
 - eusi, for the updated talent module in Mists of Pandaria.
 - ywfn, for making the PvP module work with all pvp and battleground changes.
