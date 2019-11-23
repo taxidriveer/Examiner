@@ -100,8 +100,8 @@ Special Thanks
 --------------
 - Chester, the original author of SuperInspect, who gave me the idea to make this mod.
 - Haldamir of Gorgonnash, for the German translation.
-- Qcat0214, who made the Chinese translation.
-- omosiro, who made the Korean translation for the 1.13.2 patch.
+- Qcat0214, who made the Chinese translation for the 1.13.2 patch.
+- omosiro, who made the Korean translation.
 - chkid, for Korean translation update for the 1.13.2 patch.
 - g3gg0, changes to the German translation & author to one of the SuperInspect versions.
 - Pettigrow of Sinstralis, for the translation to French.
