@@ -98,15 +98,23 @@ function mod:LoadHonorNormal()
 	self:HasData(true);
 		-- Get Honor values
 		hd.todayHK, hd.todayDK, hd.yesterdayHK, hd.yesterdayHonor, hd.thisweekHK, hd.thisweekHonor, hd.lastweekHK, hd.lastweekHonor, hd.lastweekStanding, hd.lifetimeHK, hd.lifetimeDK, hd.lifetimeRank = GetInspectHonorData();
+		-- Get Rank Progress
+		hd.rankProgress = round((GetInspectPVPRankProgress() * 100),2)
 		-- Get Highest Rank Name
 		hd.lifetimeHighestRankName = GetPVPRankInfo(hd.lifetimeRank)
 		if not hd.lifetimeHighestRankName then
 			hd.lifetimeHighestRankName = COMBAT_TEXT_NONE
 		end
 		-- Get Current Rank Name
-		hd.rankName, hd.rankNumber = GetPVPRankInfo(UnitPVPRank("target"));
+		if ex.unit == "target" then
+			hd.rankName, hd.rankNumber = GetPVPRankInfo(UnitPVPRank("target"));
+		elseif ex.unit == "mouseover" then
+			hd.rankName, hd.rankNumber = GetPVPRankInfo(UnitPVPRank("mouseover"));
+		end
 		if not hd.rankName then
 			hd.rankName = COMBAT_TEXT_NONE
+			hd.rankNumber = 0
+			hd.rankProgress = 0
 		end	
 	-- Update
 	self:UpdateHonor();
@@ -115,11 +123,9 @@ end
 -- Honor Update
 function mod:UpdateHonor()
 	-- Show Rank Bar Progress
-	local rankProgress = round((GetInspectPVPRankProgress() * 100),2)
-	-- local rankProgress = 55
-	mod.rankBar:SetValue(rankProgress)
+	mod.rankBar:SetValue(hd.rankProgress)
 	mod.rankBar.Text:SetText(hd.rankName .. " (" .. RANK .. " " .. hd.rankNumber .. ")")
-	mod.rankBar.tip = ACHIEVEMENT_CATEGORY_PROGRESS .. ": " .. rankProgress .. "%"
+	mod.rankBar.tip = ACHIEVEMENT_CATEGORY_PROGRESS .. ": " .. hd.rankProgress .. "%"
 	mod.rankBar:Show();
 	
 	-- Show Icon with Current Rank
