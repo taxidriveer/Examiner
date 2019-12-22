@@ -1,4 +1,4 @@
-## Interface: 11302
+## Interface: 11303
 ## Version: Classic Fan Update (1.09.1)
 ## Title: Examiner
 ## Author: Aezay (Earthen Ring EU), Grome (Sulfuron)
