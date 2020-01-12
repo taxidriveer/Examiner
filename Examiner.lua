@@ -107,6 +107,10 @@ end
 local function Examiner_OnUpdate(self,elapsed)
 	if (self:ValidateUnit()) and (CheckInteractDistance(self.unit,3)) then
 		self:DoInspect(self.unit);
+		-- We do another inspect due to honnor data reporting the last succesful inspect... (needs to find something more elegant)
+		C_Timer.After(0.5, function()
+			self:DoInspect(self.unit);
+		end)
 	end
 end
 
