@@ -109,20 +109,20 @@ LGE.StatNames = {
 	MP5 = ITEM_MOD_POWER_REGEN0_SHORT,
 	
 	-- Can we find a global variable for these one ?
-	DAGGERSKILL = "Increased Daggers Skill",
+	DAGGERSKILL = "Daggers Skill Bonus",
 	
-	ONEAXESKILL = "Increased Axes Skill",
-	TWOAXESKILL = "Increased Two-Handed Axes Skill",
+	ONEAXESKILL = "Axes Skill Bonus",
+	TWOAXESKILL = "Two-Handed Axes Skill Bonus",
 
-	ONESWORDSKILL = "Increased Swords Skill",
-	TWOSWORDSKILL = "Increased Two-Handed Swords Skill",
+	ONESWORDSKILL = "Swords Skill Bonus",
+	TWOSWORDSKILL = "Two-Handed Swords Skill Bonus",
 	
-	ONEMACESKILL = "Increased Maces Skill",
-	TWOMACESKILL = "Increased Two-Handed Maces Skill",
+	ONEMACESKILL = "Maces Skill Bonus",
+	TWOMACESKILL = "Two-Handed Maces Skill Bonus",
 	
-	BOWSKILL = "Increased Bows skill",
-	GUNSSKILL = "Increased Guns skill",
-	CROSSBOWSKILL = "Increased Crossbows Skill",
+	BOWSKILL = "Bows skill Bonus",
+	GUNSSKILL = "Guns skill Bonus",
+	CROSSBOWSKILL = "Crossbows Skill Bonus",
 };
 
 -- Create a sorted List of Stats
