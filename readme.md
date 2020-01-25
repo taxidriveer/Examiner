@@ -12,10 +12,12 @@ Fan Update
 * Ability to Show/Hide PVP and gearlist module in options
 * Added back Item Usage module for fun statistics :)
 
-To do :
-* HonorSpy compatibility
+To do:
 * Portuguese and Russian translation
 * Fix stats in the cache module, you might have to enter the same entry twice to show all the stats
+
+Known issues:
+* HonorSpy break Examiner, see [Issue 6](https://github.com/taxidriveer/Examiner/issues/6#issuecomment-578391763) 
 
 ![alt text](https://i.imgur.com/voq7odP.jpg)
 
