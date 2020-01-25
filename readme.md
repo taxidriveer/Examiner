@@ -13,6 +13,7 @@ Fan Update
 * Added back Item Usage module for fun statistics :)
 
 To do :
+* HonorSpy compatibility
 * Portuguese and Russian translation
 * Fix stats in the cache module, you might have to enter the same entry twice to show all the stats
 
