@@ -1,3 +1,5 @@
+**Project Status: Inactive**
+
 Fan Update
 ---------------------------------------
 * Disabled Talents, Guild and Feats
