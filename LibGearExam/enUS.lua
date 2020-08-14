@@ -71,7 +71,7 @@ LibGearExam.Patterns = {
 	--  Equip: Magic --
 	{ p = "Increases damage and healing done by magical spells and effects by up to (%d+)%.", s = { "SPELLDMG", "HEAL" } },
 	{ p = "Increases healing done by spells and effects by up to (%d+)%.", s = { "HEAL" } },
-
+	{ p = "%+(%d+) Healing Spells", s = { "HEAL" } },
 	{ p = "Increases damage done by arcane spells and effects by up to (%d+)%.", s = "ARCANEDMG" },
 	{ p = "Increases damage done by fire spells and effects by up to (%d+)%.", s = "FIREDMG" },
 	{ p = "Increases damage done by nature spells and effects by up to (%d+)%.", s = "NATUREDMG" },
@@ -82,7 +82,7 @@ LibGearExam.Patterns = {
 
 	--  Health & Mana Per 5 Sec  --
 	{ p = "Restores (%d+) mana per 5 sec%.", s = "MP5" },
-
+	{ p = "(%d+) mana every 5 sec%.", s = "MP5" },
 	{ p = "Restores (%d+) health per 5 sec%.", s = "HP5"},
 	{ p = "(%d+) health every 5 sec%.", s = "HP5" },
 
