@@ -123,6 +123,7 @@ Special Thanks
 - fallendos, for an update to the Korean patterns.
 - Netrox, for the help in updaing the talents module for WoD.
 - Cidrei, updates to the GetUpgradedItemLevel lib to fix itemLevels for Timewarped items.
+- Valmere for ZG enchants and more.
 - All the people using Examiner!
 
 Lacking Features, Ideas & Problems
