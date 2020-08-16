@@ -69,7 +69,7 @@ LibGearExam.Patterns = {
 
 
 	--  Equip: Magic --
-	{ p = "Increases damage and healing done by magical spells and effects by up to (%d+)%.", s = { "SPELLDMG", "HEAL" } },
+	{ p = "Increases damage and healing done by magical spells and effects by up to (%d+)%.", s = { "SPELLDMG" } },
 	{ p = "Increases healing done by spells and effects by up to (%d+)%.", s = { "HEAL" } },
 	{ p = "%+(%d+) Healing Spells", s = { "HEAL" } },
 	{ p = "Increases damage done by arcane spells and effects by up to (%d+)%.", s = "ARCANEDMG" },
@@ -117,7 +117,7 @@ LibGearExam.Patterns = {
 	{ p = "%+(%d+) Holy S?p?e?l?l? ?Damage", s = "HOLYDMG" },
 	
 	-- ZG Enchants --
-	{ p = "%+(%d+) Spell Damage and Healing", s = { "SPELLDMG", "HEAL" } }, -- ZG Caster Shoulder Enchant
+	{ p = "%+(%d+) Spell Damage and Healing", s = { "SPELLDMG" } }, -- ZG Caster Shoulder Enchant
 	{ p = "Healing and Spell Damage %+(%d+)%/Spell Hit %+(%d+)", s = { "SPELLDMG", "SPELLHIT" } }, -- Mage Helm/Legs
 	{ p = "Healing and Spell Damage %+(%d+)%/Stamina %+(%d+)", s = { "SPELLDMG", "STA" } }, -- Warlock Helm/Legs
 	{ p = "Attack Power %+(%d+)%/Dodge %+(%d+)", s = { "AP", "DODGE" } }, -- Rogue Helm/Legs
