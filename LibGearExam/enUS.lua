@@ -126,4 +126,5 @@ LibGearExam.Patterns = {
 	{ p = "Defense %+(%d+)%/Stamina %+(%d+)%/Block Value %+(%d+)", s = { "DEFENSE", "STA", "BLOCKVALUE" } }, -- Warrior Helm/Legs
 	{ p = "Defense %+(%d+)%/Stamina %+(%d+)%/Healing Spells %+(%d+)", s = { "DEFENSE", "STA", "HEAL" } }, -- Paladin Helm/Legs
 	{ p = "Intellect %+(%d+)%/Stamina %+(%d+)%/Healing Spells %+(%d+)", s = { "INT", "STA", "HEAL" } }, -- Druid Helm/Legs
+	{ p = "Healing and Spell Damage %+(%d+)%/Intellect %+(%d+)", s = { "SPELLDMG", "INT" } }, -- Shaman Helm/Legs
 };
