@@ -115,4 +115,12 @@ LibGearExam.Patterns = {
 	{ p = "%+(%d+) Frost S?p?e?l?l? ?Damage", s = "FROSTDMG" },
 	{ p = "%+(%d+) Shadow S?p?e?l?l? ?Damage", s = "SHADOWDMG" },
 	{ p = "%+(%d+) Holy S?p?e?l?l? ?Damage", s = "HOLYDMG" },
+	
+	-- ZG Enchants --
+	{ p = "%+(%d+) Spell Damage and Healing", s = { "SPELLDMG", "HEAL" } }, -- ZG Caster Shoulder Enchant
+	{ p = "Healing and Spell Damage %+(%d+)%/Spell Hit %+(%d+)", s = { "SPELLDMG", "SPELLHIT" } }, -- Mage Helm/Legs
+	{ p = "Healing and Spell Damage %+(%d+)%/Stamina %+(%d+)", s = { "SPELLDMG", "STA" } }, -- Warlock Helm/Legs
+	{ p = "Attack Power %+(%d+)%/Dodge %+(%d+)", s = { "AP", "DODGE" } }, -- Rogue Helm/Legs
+	{ p = "Mana Regen %+(%d+)%/Stamina %+10%/Healing Spells %+(%d+)", s = { "MP5", "HEAL" } }, -- Priest Helm/Legs
+	{ p = "Ranged Attack Power %+(%d+)%/Stamina %+10%/Hit %+(%d+)", s = { "RAP", "HIT" } }, -- Hunter Helm/Legs
 };
