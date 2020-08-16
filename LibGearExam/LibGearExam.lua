@@ -343,7 +343,7 @@ end
 --------------------------------------------------------------------------------------------------------
 function LGE:ScanLineForPatterns(text,statTable)
 	for index, pattern in ipairs(self.Patterns) do
-		local pos, _, value1, value2 = text:find(pattern.p);
+		local pos, _, value1, value2, value3 = text:find(pattern.p);
 		if (pos) and (value1 or pattern.v) then
 --pattern.uses = (pattern.uses or 0) + 1;
 			-- Pattern Debugging -> Find obsolete patterns put on alert
@@ -364,6 +364,8 @@ function LGE:ScanLineForPatterns(text,statTable)
 					if (type(pattern.v) == "table") then
 						statTable[statName] = (statTable[statName] or 0) + (pattern.v[statIndex]);
 					-- Az: This is a bit messy, only supports 2 now, needs to make it dynamic and support as many extra values as needed
+					elseif (statIndex == 3) and (value3) then
+						statTable[statName] = (statTable[statName] or 0) + (value3);
 					elseif (statIndex == 2) and (value2) then
 						statTable[statName] = (statTable[statName] or 0) + (value2);
 					else
