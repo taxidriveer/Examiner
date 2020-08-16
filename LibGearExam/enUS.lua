@@ -100,7 +100,7 @@ LibGearExam.Patterns = {
 	{ p = "^Mana %+(%d+)$", s = "MP" },
 	
 	{ p = "^Reinforced Armor %+(%d+)$", s = "ARMOR" },
-	
+	{ p = "Armor %+(%d+)", s = "ARMOR" },
 	{ p = "^Scope %(%+(%d+) Damage%)$", s = "RANGEDDMG" },
 	{ p = "^Weapon Damage %+(%d+)$", s = "WPNDMG" },
 	
