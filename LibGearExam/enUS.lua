@@ -121,6 +121,9 @@ LibGearExam.Patterns = {
 	{ p = "Healing and Spell Damage %+(%d+)%/Spell Hit %+(%d+)", s = { "SPELLDMG", "SPELLHIT" } }, -- Mage Helm/Legs
 	{ p = "Healing and Spell Damage %+(%d+)%/Stamina %+(%d+)", s = { "SPELLDMG", "STA" } }, -- Warlock Helm/Legs
 	{ p = "Attack Power %+(%d+)%/Dodge %+(%d+)", s = { "AP", "DODGE" } }, -- Rogue Helm/Legs
-	{ p = "Mana Regen %+(%d+)%/Stamina %+10%/Healing Spells %+(%d+)", s = { "MP5", "HEAL" } }, -- Priest Helm/Legs
-	{ p = "Ranged Attack Power %+(%d+)%/Stamina %+10%/Hit %+(%d+)", s = { "RAP", "HIT" } }, -- Hunter Helm/Legs
+	{ p = "Mana Regen %+(%d+)%/Stamina %+(%d+)%/Healing Spells %+(%d+)", s = { "MP5", "STA", "HEAL" } }, -- Priest Helm/Legs
+	{ p = "Ranged Attack Power %+(%d+)%/Stamina %+(%d+)%/Hit %+(%d+)", s = { "RAP", "STA", "HIT" } }, -- Hunter Helm/Legs
+	{ p = "Defense %+(%d+)%/Stamina %+(%d+)%/Block Value %+(%d+)", s = { "DEFENSE", "STA", "BLOCKVALUE" } }, -- Warrior Helm/Legs
+	{ p = "Defense %+(%d+)%/Stamina %+(%d+)%/Healing Spells %+(%d+)", s = { "DEFENSE", "STA", "HEAL" } }, -- Paladin Helm/Legs
+	{ p = "Intellect %+(%d+)%/Stamina %+(%d+)%/Healing Spells %+(%d+)", s = { "INT", "STA", "HEAL" } }, -- Druid Helm/Legs
 };
