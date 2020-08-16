@@ -444,6 +444,9 @@ function LGE:GetStatValue(statToken,statTable,compareTable,level,combineAdditive
 		if (statToken == "SPELLDMG") and (statTable["INT"]) then
 		--	value = (value + statTable["INT"]);	Intellect does not give spellpower in classic.
 		end
+		if (statToken == "HEAL") and (statTable["SPELLDMG"]) then
+			value = (value + statTable["SPELLDMG"]);	-- spelldmg is also healing power though. tested on mage and paladin
+		end
 		if (statToken == "RAP") and (statTable["AP"]) then
 			value = (value + statTable["AP"]);
 		end
