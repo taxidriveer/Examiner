@@ -440,7 +440,7 @@ function LGE:GetStatValue(statToken,statTable,compareTable,level,combineAdditive
 			end
 		end
 		if (statToken == "SPELLDMG") and (statTable["INT"]) then
-			value = (value + statTable["INT"]);
+		--	value = (value + statTable["INT"]);	Intellect does not give spellpower in classic.
 		end
 		if (statToken == "RAP") and (statTable["AP"]) then
 			value = (value + statTable["AP"]);
