@@ -34,8 +34,9 @@ LibGearExam.Patterns = {
 	--  Equip: Melee & Ranged & Magic  --
 	{ p = "Improves your chance to get a critical strike by (%d+)%%%.", s = { "CRIT" }},
 	{ p = "Improves your chance to hit by (%d+)%%%.", s = { "HIT" }},
-	-- 3% hit scope only applies to ranged hit
-	{ p = "%+(%d+)%% Hit", s = { "RHIT" }},
+	-- 3% hit scope only applies to ranged hit:
+	{ p = "%+(%d+)%% Hit", s = { "HIT" }},
+	-- just going to add it to overall hit because i cant get RANGEDHIT to work
 	{ p = "Improves your chance to get a critical strike with spells by (%d+)%%%.", s = { "SPELLCRIT" }},
 	{ p = "Improves your chance to hit with spells by (%d+)%%%.", s = { "SPELLHIT" }},
 
@@ -55,6 +56,7 @@ LibGearExam.Patterns = {
 	{ p = "%+(%d+) Attack Power%.", s = "AP" },
 	{ p = "%+(%d+) Attack Power in Cat, Bear, and Dire Bear forms only%.", s = "APFERAL" },
 	{ p = "Attack Speed %+(%d+)%%", s = "HASTE" },
+	{ p = "%+(%d+) ranged Attack Power%.", s = "RAP" },
 
 	--  Equip: Magic --
 	{ p = "Increases damage and healing done by magical spells and effects by up to (%d+)%.", s = { "SPELLDMG" } },
