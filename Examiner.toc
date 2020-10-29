@@ -4,6 +4,7 @@
 ## Author: Aezay (Earthen Ring EU), Grome (Sulfuron)
 ## Notes: Advanced Inspection Mod of Gear and Honor.
 ## SavedVariables: Examiner_Config, Examiner_Cache
+## OptionalDeps: Details
 
 ## libs ##
 LibGearExam\LibGearExam.xml
