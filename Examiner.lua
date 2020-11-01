@@ -182,6 +182,12 @@ end
 function ex:PLAYER_TARGET_CHANGED(event)
 	if (cfg.autoInspect) and (UnitExists("target")) then
 		self:DoInspect("target");
+			if _G.Details and (UnitIsPlayer("target")) then
+				InspectFrame = Examiner
+				Details:ShowTalentsPanel()
+			elseif _G.Details then
+				DetailsTalentFrame:Hide();
+			end
 	elseif (self.unit == "target") then
 		self.unit = nil;
 		self:SetScript("OnUpdate",nil);
@@ -747,6 +753,12 @@ function ex:DoInspect(unit,openFlag)
 		-- We couldn't Inspect, try and see if we have them cached?
 		if (not self.canInspect) and (not self:LoadPlayerFromCache(self:GetEntryName())) and (cfg.activePage) then
 			self.modules[cfg.activePage].page:Hide();	-- Az: this is slightly bad to do, what if a module still have data to show? feats still work outside inspect range for example
+		end
+		-- show talents
+		if (openFlag ~= false) and _G.Details and (UnitIsPlayer("target")) and (not self:IsShown()) then
+    		self:Display();
+    		InspectFrame = Examiner
+    		Details:ShowTalentsPanel()
 		end
 		-- Outside range, monitor range and inspect as soon as they are in range
 		if (not CheckInteractDistance(unit,3)) then
