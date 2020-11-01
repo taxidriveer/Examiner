@@ -1,5 +1,5 @@
 ## Interface: 11305
-## Version: Classic Fan Update (1.09.3)
+## Version: Classic Fan Update (1.09.4)
 ## Title: Examiner
 ## Author: Aezay (Earthen Ring EU), Grome (Sulfuron)
 ## Notes: Advanced Inspection Mod of Gear and Honor.
