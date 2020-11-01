@@ -57,7 +57,7 @@ ex.options = {
 	{ var = "clearInspectOnHide", default = false, label = "Clear Inspect Data on Hide", tip = "When Examiner gets hidden, this option will clear inspection data, thus freeing up some memory." },
 	-- { var = "percentRatings", default = false, label = "Show Ratings in Percentage *", tip = "* = Not working in WoD.\nWith this option enabled, ratings will be displayed in percent relative to the inspected person's level." },
 	{ var = "combineAdditiveStats", default = true, label = "Combine Additive Stats", tip = "This option will combine certain stats which stacks with others.\n- Spell Power to specific schools\n- Intellect to Spell Power\n- AP to Ranged AP" },
-	{ var = "tooltipSmartAnchor", default = false, label = "Smart Tooltip Anchor", tip = "Instead of showing item tooltips next to the item button, it will place it next to the Examiner window, in a fixed position" },
+	{ var = "tooltipSmartAnchor", default = false, label = "Fixed Tooltip Anchor", tip = "Instead of showing item tooltips next to the item button, it will place it next to the Examiner window, in a fixed position" },
 };
 
 -- Binding Name
