@@ -121,4 +121,9 @@ LibGearExam.Patterns = {
 	{ p = "%+(%d+) aux dégâts des sorts de Givre", s = "FROSTDMG" },
 	{ p = "%+(%d+) aux dégâts des sorts d'Ombre", s = "SHADOWDMG" },
 	{ p = "%+(%d+) aux dégâts des sorts du Sacré", s = "HOLYDMG" },
+	
+		-- AQ Enchants --
+	{ p = "Dégâts d'Ombre %+(%d+)", s = "SHADOWDMG" },
+	{ p = "Dégâts de feu %+(%d+)", s = "FIREDMG" },
+	{ p = "Dégâts de givre %+(%d+)", s = "FROSTDMG" },
 };

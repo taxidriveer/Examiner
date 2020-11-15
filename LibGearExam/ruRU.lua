@@ -159,4 +159,9 @@ LibGearExam.Patterns = {
 
 	-- Future Patterns (Disabled)
 	--{ p = "When struck in combat inflicts (%d+) .+ damage to the attacker.", s = "DMGSHIELD" },
+	
+		-- AQ Enchants --
+	{ p = "%+(%d+) к урону от темной магии", s = "SHADOWDMG" },
+	{ p = "%+(%d+) к урону от огня", s = "FIREDMG" },
+	{ p = "%+(%d+) к урону от магии льда", s = "FROSTDMG" },
 };

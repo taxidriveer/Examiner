@@ -151,4 +151,9 @@ LibGearExam.Patterns = {
 	{ p = "%+(%d+) 冰霜法术伤害", s = "FROSTDMG" },
 	{ p = "%+(%d+) 暗影法术伤害", s = "SHADOWDMG" },
 	{ p = "%+(%d+) 神圣法术伤害", s = "HOLYDMG" },
+	
+		-- AQ Enchants --
+	{ p = "暗影伤害 %+(%d+)", s = "SHADOWDMG" },
+	{ p = "火焰伤害 %+(%d+)", s = "FIREDMG" },
+	{ p = "冰霜伤害 %+(%d+)", s = "FROSTDMG" },
 };

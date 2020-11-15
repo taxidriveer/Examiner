@@ -119,4 +119,10 @@ LibGearExam.Patterns = {
 	{ p = "Frostschaden %+(%d+)$", s = "FROSTDMG" },
 	{ p = "Schattenschaden %+(%d+)$", s = "SHADOWDMG" },
 	-- { p = "%+(%d+) Holy S?p?e?l?l? ?Damage", s = "HOLYDMG" },
+	
+			-- AQ Enchants --
+	-- Redundant
+	-- { p = "Schattenschaden %+(%d+)", s = "SHADOWDMG" },
+	-- { p = "Feuerschaden %+(%d+)", s = "FIREDMG" },
+	-- { p = "Frostschaden %+(%d+)", s = "FROSTDMG" },
 };

@@ -124,5 +124,10 @@ LibGearExam.Patterns = {
 	{ p = "냉기 주문 공격력 %+(%d+)", s = "FROSTDMG" },
 	{ p = "암흑 주문 공격력 %+(%d+)", s = "SHADOWDMG" },
 	{ p = "신성 주문 공격력 %+(%d+)", s = "HOLYDMG" },
+	
+		-- AQ Enchants --
+	{ p = "암흑 공격력 %+(%d+)", s = "SHADOWDMG" },
+	{ p = "화염 공격력 %+(%d+)", s = "FIREDMG" },
+	{ p = "냉기 공격력 %+(%d+)", s = "FROSTDMG" },
 
 };
