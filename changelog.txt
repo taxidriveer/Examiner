@@ -1,3 +1,6 @@
+Examiner Changes | 2020 Dec 24
+- TOC update
+
 Examiner Changes | 2019 Nov 23
 - Added zhCN localization, thanks to Qcat0214
 
